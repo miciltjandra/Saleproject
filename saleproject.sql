@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: saleproject
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.9-MariaDB
+-- Server version	5.7.11-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `product`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `product` (
   `product_id` int(10) NOT NULL AUTO_INCREMENT,
-  `product_name` varchar(100) DEFAULT NULL,
+  `product_name` varchar(100) NOT NULL,
   `description` varchar(200) DEFAULT NULL,
   `likes` int(10) DEFAULT NULL,
   `added_date` datetime DEFAULT NULL,
-  `price` decimal(19,4) DEFAULT NULL,
+  `price` decimal(19,4) NOT NULL,
   `image` longblob,
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -54,8 +54,8 @@ CREATE TABLE `purchase` (
   `purchase_id` int(10) NOT NULL AUTO_INCREMENT,
   `product_purchased` int(10) DEFAULT NULL,
   `quantity` int(10) DEFAULT NULL,
-  `buyer` varchar(32) DEFAULT NULL,
-  `seller` varchar(32) DEFAULT NULL,
+  `buyer_id` int(10) DEFAULT NULL,
+  `seller_id` int(10) DEFAULT NULL,
   `consingee` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `postalcode` varchar(5) DEFAULT NULL,
@@ -64,11 +64,11 @@ CREATE TABLE `purchase` (
   `verification` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`purchase_id`),
   KEY `product_purchased` (`product_purchased`),
-  KEY `buyer` (`buyer`),
-  KEY `seller` (`seller`),
+  KEY `purchase_ibfk_2_idx` (`seller_id`,`buyer_id`),
+  KEY `purchase_ibfk_2_idx1` (`buyer_id`),
   CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`product_purchased`) REFERENCES `product` (`product_id`),
-  CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`buyer`) REFERENCES `user` (`username`),
-  CONSTRAINT `purchase_ibfk_3` FOREIGN KEY (`seller`) REFERENCES `user` (`username`)
+  CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `purchase_ibfk_3` FOREIGN KEY (`seller_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -89,6 +89,7 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
+  `user_id` int(10) NOT NULL AUTO_INCREMENT,
   `fullname` varchar(100) NOT NULL,
   `username` varchar(32) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
@@ -96,7 +97,7 @@ CREATE TABLE `user` (
   `address` varchar(200) DEFAULT NULL,
   `postalcode` varchar(5) DEFAULT NULL,
   `phonenumber` varchar(12) DEFAULT NULL,
-  PRIMARY KEY (`username`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -118,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-24  9:57:26
+-- Dump completed on 2016-09-24 20:58:42
