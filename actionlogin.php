@@ -1,4 +1,8 @@
 <?php
+
+	echo $_SERVER['HTTP_REFERER'];
+
+
 	$username = $_POST["user"];
 	$password = $_POST["pass"];
 
@@ -37,7 +41,12 @@
 
 	if ($resultpassword["password"] === $password) {
 		echo "Login successful <br/>\n";
+		header("Location : catalog.php");
 	} else {
 		echo "Login error <br/>\n";
+		header("Location: index.php");
+		setcookie("login", "error");
 	}
+
+
 ?>

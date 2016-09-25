@@ -32,29 +32,55 @@
 		echo "Connected successfully <br>\n";
 	}
 
+	$valid = false;
+	$valid2 = false;
+
+	$checkquery = "SELECT *
+	FROM user
+	WHERE username = \"" . $username . "\"";
+
+	$checkresult = $conn->query($checkquery);
+
+	if ($checkresult->num_rows !== 0) {
+		echo "Username already existed";
+		$valid = false;
+	} else {
+		echo "Username OK";
+		$valid = true;
+	}
+
 	if (strcmp($password, $confirmpass) !== 0) {
 		echo "Password not confirmed <br>\n";
+		$valid2 = false;
 	} else {
 		echo "Password confirmed <br>\n";
+		$valid2 = true;
 	}
 
-	$query = "INSERT INTO user VALUES(" .
-		"\"" . $name . "\"" . ", " .
-		"\"" . $username . "\"" . ", " .
-		"\"" . $email . "\"" . ", " .
-		"\"" . $password . "\"" . ", " .
-		"\"" . $address . "\"" . ", " .
-		"\"" . $postcode . "\"" . ", " .
-		"\"" . $phone . "\"" . ")";
+	if ($valid && $valid2) {
+		$query = "INSERT INTO user(fullname, username, email, password, address, postalcode, phonenumber)
+			VALUES(" .
+			"\"" . $name . "\"" . ", " .
+			"\"" . $username . "\"" . ", " .
+			"\"" . $email . "\"" . ", " .
+			"\"" . $password . "\"" . ", " .
+			"\"" . $address . "\"" . ", " .
+			"\"" . $postcode . "\"" . ", " .
+			"\"" . $phone . "\"" . ")";
 
-	echo $query . "<br/>\n";
+		echo $query . "<br/>\n";
 
-	if ($conn->query($query) === TRUE) {
-	    echo "Registration Success <br>\n";
-	} else {
-	    echo "Error : " . $conn->error;
+		if ($conn->query($query) === TRUE) {
+		    echo "Registration Success <br>\n";
+		} else {
+		    echo "Error : " . $conn->error;
+		}
 	}
-
+	else {
+		echo "not valid";
+		setcookie("register", "error");
+		header("Location: register.php");
+	}
 
 	$conn->close();
 ?>
