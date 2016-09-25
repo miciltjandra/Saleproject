@@ -3,6 +3,10 @@
 	<head>
 		<title> Login page </title>
 	</head>
+	<?php
+	    require 'header.php';
+	    require_once 'header.php';
+    ?>
 	<body>
 		<h1> SaleProject </h1>
 		<form action = "actionlogin.php" method = "post" id = "loginform">
