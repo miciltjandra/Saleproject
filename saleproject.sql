@@ -24,13 +24,17 @@ DROP TABLE IF EXISTS `product`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `product` (
   `product_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) DEFAULT NULL,
   `product_name` varchar(100) NOT NULL,
   `description` varchar(200) DEFAULT NULL,
   `likes` int(10) DEFAULT NULL,
+  `purchases` int(10) DEFAULT NULL,
   `added_date` datetime DEFAULT NULL,
   `price` decimal(19,4) NOT NULL,
   `image` longblob,
-  PRIMARY KEY (`product_id`)
+  PRIMARY KEY (`product_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -119,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-24 20:58:42
+-- Dump completed on 2016-09-26 10:52:32
