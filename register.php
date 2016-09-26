@@ -2,40 +2,7 @@
 <html>
 	<head>
 		<title> Register page </title>
-		<script>
-			function searchUsername(str) {
-				if (str.length == 0) {
-					document.getElementById("userexist").innerHTML = "";
-				}
-				else {
-					var xmlhttp = new XMLHttpRequest();
-			        xmlhttp.onreadystatechange = function() {
-			            if (this.readyState == 4 && this.status == 200) {
-			                document.getElementById("userexist").innerHTML = this.responseText;
-			                //document.getElementById("registersubmit").disabled = true;
-
-			            }
-			        };
-			        xmlhttp.open("GET", "checkusername.php?q=" + str, true);
-			        xmlhttp.send();
-					
-				}
-			}
-
-			function confirmPassword() {
-				var pass = document.getElementById("pass");
-				var pass2 = document.getElementById("pass2");
-				if (pass.value != pass2.value) {
-					document.getElementById("diffpass").innerHTML = "Different password";
-				}
-				else {
-					document.getElementById("diffpass").innerHTML = "Confirmed";
-				}
-
-			}
-
-
-		</script>
+		<script src="registerscript.js"></script>
 	</head>
 	<?php
 	    require 'header.php';
@@ -47,22 +14,23 @@
 				<legend align = "left"> Registration </legend>
 
 				<?php
-					if(!empty($_COOKIE["register"])) {
-						$login = $_COOKIE["register"];
-						if ($login == "error") {
+					if(!empty($_REQUEST["q"])) {
+						if ($_REQUEST["q"] == "error") {
 							echo "Registration Error <br/>\n";
 						}
-						setcookie("login", "");
 					}
 				?>
 
 				Full Name <br/>
-				<input type = "text" name = "name"> <br/>
+				<input type = "text" name = "name" oninput = "validate(this.value, this.name)">
+				<span id = "validname"></span> <br/>
 				Username <br/>
-				<input type = "text" name = "user" oninput = "searchUsername(this.value)">
+				<input type = "text" name = "user" oninput = "searchUsername(this.value);validate(this.value,this.name)">
+				<span id = "validuser"></span>
 				<span id = "userexist"></span> <br/>
 				Email <br/>
-				<input type = "text" name = "email" required = "required"> <br/>
+				<input type = "text" name = "email" required = "required" oninput = "validate(this.value, this.name)">
+				<span id = "validemail"></span> <br/>
 				Password <br/>
 				<input type = "password" name = "pass" id = "pass"> <br/>
 				Confirm Password <br/>
@@ -71,9 +39,9 @@
 				Full Address <br/>
 				<input type = "text" name = "address"> <br/>
 				Postal Code <br/>
-				<input type = "text" name = "postcode"> <br/>
+				<input type = "text" name = "postcode" maxlength="5"> <br/>
 				Phone Number <br/>
-				<input type = "text" name = "phone"> <br/>
+				<input type = "text" name = "phone" maxlength="12"> <br/>
 				<input type = "submit" value = "Register" id = "registersubmit">
 		</form>
 		<br/>

@@ -78,8 +78,7 @@
 	}
 	else {
 		echo "not valid";
-		setcookie("register", "error");
-		header("Location: register.php");
+		header("Location: register.php?q=error");
 	}
 
 	$conn->close();
