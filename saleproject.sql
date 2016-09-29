@@ -28,7 +28,7 @@ CREATE TABLE `product` (
   `description` varchar(200) DEFAULT NULL,
   `likes` int(10) DEFAULT NULL,
   `added_date` datetime DEFAULT NULL,
-  `price` int(20) NOT NULL,
+  `price` decimal(15,0) NOT NULL,
   `image` longblob,
   `seller_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
@@ -122,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-29 20:36:57
+-- Dump completed on 2016-09-29 20:40:42
