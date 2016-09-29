@@ -70,7 +70,7 @@ function validateform() {
 	var items = ["name", "user", "phone", "postcode"];
 	var valid = true;
 	for (var item in items) {
-		var value = document.getElementById(item);
+		var value = document.getElementById(item).value;
 		if (!validate(value,item)) {
 			valid = false;
 		}

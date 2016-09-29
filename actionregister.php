@@ -35,7 +35,7 @@
 	$valid = false;
 	$valid2 = false;
 
-	$checkquery = "SELECT *
+	$checkquery = "SELECT user_id
 	FROM user
 	WHERE username = \"" . $username . "\"";
 
@@ -72,8 +72,14 @@
 
 		if ($conn->query($query) === TRUE) {
 		    echo "Registration Success <br>\n";
+		    session_start();
+		    $idresult = $conn->query($checkquery);
+		    $user_id = $idresult->fetch_assoc()["user_id"];
+		    echo "user_id : " . $user_id;
+		    $_SESSION["login"] = $user_id;
+		    header("Location: catalog.php");
 		} else {
-		    echo "Error : " . $conn->error;
+		    die("Error : " . $conn->error);
 		}
 	}
 	else {
