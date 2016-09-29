@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: saleproject
 -- ------------------------------------------------------
--- Server version	5.7.11-log
+-- Server version	5.5.5-10.1.9-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,18 +24,17 @@ DROP TABLE IF EXISTS `product`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `product` (
   `product_id` int(10) NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) DEFAULT NULL,
   `product_name` varchar(100) NOT NULL,
   `description` varchar(200) DEFAULT NULL,
   `likes` int(10) DEFAULT NULL,
-  `purchases` int(10) DEFAULT NULL,
   `added_date` datetime DEFAULT NULL,
   `price` decimal(19,4) NOT NULL,
   `image` longblob,
+  `seller_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `seller` (`seller_id`),
+  CONSTRAINT `seller` FOREIGN KEY (`seller_id`) REFERENCES `user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,21 +58,20 @@ CREATE TABLE `purchase` (
   `product_purchased` int(10) DEFAULT NULL,
   `quantity` int(10) DEFAULT NULL,
   `buyer_id` int(10) DEFAULT NULL,
-  `seller_id` int(10) DEFAULT NULL,
-  `consingee` varchar(100) DEFAULT NULL,
+  `consignee` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `postalcode` varchar(5) DEFAULT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `creditcard` varchar(12) DEFAULT NULL,
   `verification` varchar(3) DEFAULT NULL,
+  `purchase_date` datetime DEFAULT NULL,
   PRIMARY KEY (`purchase_id`),
   KEY `product_purchased` (`product_purchased`),
-  KEY `purchase_ibfk_2_idx` (`seller_id`,`buyer_id`),
+  KEY `purchase_ibfk_2_idx` (`buyer_id`),
   KEY `purchase_ibfk_2_idx1` (`buyer_id`),
   CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`product_purchased`) REFERENCES `product` (`product_id`),
-  CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `purchase_ibfk_3` FOREIGN KEY (`seller_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +100,7 @@ CREATE TABLE `user` (
   `postalcode` varchar(5) DEFAULT NULL,
   `phonenumber` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,6 +109,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Michael','chills12','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(2,'a','asd','a','a','a','a','a'),(3,'Michael','asdf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(4,'Michael','asdfg','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(5,'Michael','asdfgh','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(6,'Michael','sadf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(7,'Michael','qwe','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(8,'Michael','adqwd','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -123,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-26 10:52:32
+-- Dump completed on 2016-09-29 17:40:01
