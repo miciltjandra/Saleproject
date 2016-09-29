@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: saleproject
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.9-MariaDB
+-- Server version	5.7.11-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,7 +28,7 @@ CREATE TABLE `product` (
   `description` varchar(200) DEFAULT NULL,
   `likes` int(10) DEFAULT NULL,
   `added_date` datetime DEFAULT NULL,
-  `price` decimal(19,4) NOT NULL,
+  `price` int(20) NOT NULL,
   `image` longblob,
   `seller_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`product_id`),
@@ -122,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-29 17:40:01
+-- Dump completed on 2016-09-29 20:36:57
