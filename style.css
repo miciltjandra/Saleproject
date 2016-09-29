@@ -1,0 +1,20 @@
+.class1{
+	
+	
+}
+
+.middle{
+	position:absolute;
+	left:50%;
+	transform:translate(-50%,0);
+	-ms-transform:translate(-50%,0);
+}
+.middle.title{
+	font-size:36px; 
+	font-family:verdana; 
+	font-weight:bold
+}
+
+.text{
+	font-family:verdana; 
+}

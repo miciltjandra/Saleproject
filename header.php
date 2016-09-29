@@ -1,6 +1,6 @@
 <div>
-	<img src="resources/tbc.png" style=" float:left; width:100px;  margin-left: 10%; margin-right: 10px">
-	<br><br>
-	<div style="font-family:impact; font-size:36px">TBC Online Trading</div>
+	<div class="middle title">SaleProject</div>
 </div>
-<br><hr>
+<br>
+<br>
+<br>
