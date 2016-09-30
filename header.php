@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <head>
 <style type="text/css">
 	#tab {
@@ -46,11 +45,3 @@
 
 
 </body>
-=======
-<div>
-	<div class="middle title">SaleProject</div>
-</div>
-<br>
-<br>
-<br>
->>>>>>> f4fc7ff3050f134b945bd77faa380fcc6d8b97cd
