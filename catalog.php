@@ -2,8 +2,15 @@
 <html>
 	<head>
 		<title> Catalog </title>
+		<link rel="stylesheet" href="style.css">
 	</head>
-	<body>
+	<?php
+	    require 'header.php';
+	    require_once 'header.php';
+		require 'menubar.php';
+		require_once 'menubar.php';
+    ?>
+	<body class="middle">
 		<?php
 			session_start();
 			$user = $_SESSION["login"];

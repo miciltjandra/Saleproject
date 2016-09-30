@@ -4,16 +4,14 @@
 }
 
 .middle{
-	min-width:40%;
-	position:absolute;
-	left:50%;
-	transform:translate(-50%,0);
-	-ms-transform:translate(-50%,0);
+	padding-left:25%;
+	padding-right:25%;
+	font-family:verdana; 
+
 }
 .middle.title{
 	font-size:36px; 
-	font-family:verdana; 
-	font-weight:bold
+	font-weight:bold;
 }
 
 .text{
@@ -21,19 +19,20 @@
 }
 
 #tab {
-	background-color: black;
 	list-style-type: none;
 	overflow: hidden;
 	border-style: solid;
-	border-width: 0px 2px 0px 0px;
+	border-width: 0px 0px 0px 0px;
 }
 #tab li a {
 	background-color: gray;
 	border-style: solid;
-	border-width: 2px 0px 2px 2px;
-	padding: 16px;
+	border-width: 2px 2px 2px 2px;
+	width: 160px;
+	height: 40px;
 	float: left;
 	display: block;
+	text-align: middle;
 }
 #tab li a:hover {
 	background-color: lightblue;
