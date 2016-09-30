@@ -15,13 +15,14 @@
 			session_start();
 			$user = $_SESSION["login"];
 			if ($user == "") {
-				echo "Unlogged";
-				header("Location: index.php");
+//				header("Location: index.php");
 			}
 			else {
 				echo "user : " . $user;
 				$_SESSION["login"] = "";
 			}
-		?>
+		?>		
+		<div class="text large"> Please add your product here </div>
+		<br><hr>
 	</body>
 </html>

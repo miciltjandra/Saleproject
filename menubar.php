@@ -11,4 +11,3 @@
 <li><a href="purchases.php">Purchases</a></li>
 </ul>
 <br><br>
-<br><br>

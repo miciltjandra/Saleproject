@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Your Product </title>
+		<title> Your Products </title>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<?php
@@ -15,13 +15,17 @@
 			session_start();
 			$user = $_SESSION["login"];
 			if ($user == "") {
-				echo "Unlogged";
-				header("Location: index.php");
+//				header("Location: index.php");
 			}
 			else {
 				echo "user : " . $user;
 				$_SESSION["login"] = "";
 			}
-		?>
+		?>		
+		<div class="text large"> What are you going to sell today? </div>
+		<br><hr>
+		<br><br>
+		<div class="text">Tanggal</div>
+		<hr>	
 	</body>
 </html>
