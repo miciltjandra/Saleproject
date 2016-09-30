@@ -10,7 +10,7 @@
     ?>
 	<body class="middle">
 		<form action = "actionlogin.php" method = "post" id = "loginform"  class="text">
-				<legend> Please Login </legend>
+				<legend class="text large"> Please Login </legend>
 				<hr>
 				<?php
 					if(!empty($_COOKIE["login"])) {

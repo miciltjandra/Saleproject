@@ -1,13 +1,8 @@
-<div class="middle">
-	<div style="background-color:#aa0000"> 
-		<p style="float: right">Hi username</h5>
-		<br><br>
-		<a style="float: right">logout</a>
-	</div>
+<div class="middle" style="backgroud-color:red">
+	<p style="text-align: right">Hi username</h5>
+	<br>
+	<a style="text-align: right">logout</a>
 </div>
-<br><br>
-<br><br>
-<br><br>
 <ul id="tab">
 <li><a>Catalog</a></li>
 <li><a>Your Products</a></li>

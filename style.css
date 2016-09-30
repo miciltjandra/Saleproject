@@ -6,16 +6,22 @@
 .middle{
 	padding-left:25%;
 	padding-right:25%;
-	font-family:verdana; 
-
+	font-family:verdana;	
+	position:relative;
 }
 .middle.title{
 	font-size:36px; 
 	font-weight:bold;
+	text-align:center;
 }
 
 .text{
 	font-family:verdana; 
+}
+
+.text.large{
+	font-size:24px;
+	font-weight:bold;
 }
 
 #tab {
@@ -32,7 +38,7 @@
 	height: 40px;
 	float: left;
 	display: block;
-	text-align: middle;
+	text-align: center;
 }
 #tab li a:hover {
 	background-color: lightblue;
