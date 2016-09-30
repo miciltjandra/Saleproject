@@ -49,7 +49,7 @@
 		$idresult = $conn->query($checkquery);
 		$user_id = $idresult->fetch_assoc()["user_id"];
 		$_SESSION["login"] = $user_id;
-		header("Location: catalog.php");
+		header("Location: catalog.php?id_active=" . $user_id);
 	} else {
 		echo "Login error <br/>\n";
 		header("Location: index.php");
