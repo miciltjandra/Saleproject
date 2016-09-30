@@ -100,7 +100,7 @@ CREATE TABLE `user` (
   `postalcode` varchar(5) DEFAULT NULL,
   `phonenumber` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,7 +109,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Michael','chills12','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(2,'a','asd','a','a','a','a','a'),(3,'Michael','asdf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(4,'Michael','asdfg','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(5,'Michael','asdfgh','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(6,'Michael','sadf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(7,'Michael','qwe','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(8,'Michael','adqwd','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878');
+INSERT INTO `user` VALUES (1,'Michael','chills12','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(2,'a','asd','a','a','a','a','a'),(3,'Michael','asdf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(4,'Michael','asdfg','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(5,'Michael','asdfgh','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(6,'Michael','sadf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(7,'Michael','qwe','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(8,'Michael','adqwd','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(9,'tbc','admin','email@email.com','admin','asd','123','123');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -122,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-29 20:40:42
+-- Dump completed on 2016-09-30  6:30:31
