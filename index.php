@@ -2,15 +2,16 @@
 <html>
 	<head>
 		<title> Login page </title>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<?php
 	    require 'header.php';
 	    require_once 'header.php';
     ?>
-	<body>
-		<h1> SaleProject </h1>
-		<form action = "actionlogin.php" method = "post" id = "loginform">
-				<legend align = "left"> Login </legend>
+	<body class="middle">
+		<form action = "actionlogin.php" method = "post" id = "loginform"  class="text">
+				<legend> Please Login </legend>
+				<hr>
 				<?php
 					if(!empty($_COOKIE["login"])) {
 						$login = $_COOKIE["login"];
@@ -27,7 +28,7 @@
 				<input type = "submit" value = "Login">
 		</form>
 		<br/>
-		Don't have an account yet? Register <a href = "register.php"> here </a>
+		<div class="text">Don't have an account yet? Register <a href = "register.php"> here </a></div>
 	</body>
 
 </html>

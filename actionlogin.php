@@ -41,7 +41,15 @@
 
 	if ($resultpassword["password"] === $password) {
 		echo "Login successful <br/>\n";
-		header("Location : catalog.php");
+		session_start();
+
+		$checkquery = "SELECT user_id
+		FROM user
+		WHERE username = \"" . $username . "\"";
+		$idresult = $conn->query($checkquery);
+		$user_id = $idresult->fetch_assoc()["user_id"];
+		$_SESSION["login"] = $user_id;
+		header("Location: catalog.php?id_active=" . $user_id);
 	} else {
 		echo "Login error <br/>\n";
 		header("Location: index.php");
