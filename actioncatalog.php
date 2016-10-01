@@ -17,7 +17,7 @@
 			$str .= " AND ";
 		}
 
-		$query = 'SELECT product_name, description, likes, added_date, price, image, username, 
+		$query = 'SELECT product_id, product_name, description, likes, added_date, price, image, username, 
 		(SELECT sum(quantity) as q
 		 FROM purchase
 		 WHERE product_id = product_purchased) as purchases
@@ -33,10 +33,6 @@
 
 		return $result;
 	}
-
-
-
-
 
 
 ?>

@@ -3,6 +3,7 @@
 	<head>
 		<title> Catalog </title>
 		<link rel="stylesheet" href="style.css">
+		<script src="catalogscript.js"></script>
 	</head>
 	<?php
 	    require 'header.php';
@@ -22,7 +23,7 @@
 		<table name="productlist">
 					<?php
 
-						include 'retrieveproduct.php';
+						include 'actioncatalog.php';
 						$result = retrieveproduct('');
 						while ($product = $result->fetch_assoc()) {
 							echo "<tr>\n";
@@ -33,9 +34,9 @@
 							echo $product["product_name"] . "<br/>\n";
 							echo $product["price"] . "<br/>\n";
 							echo $product["description"] . "<br/>\n";
-							echo '<span id="like">' . $product["likes"] . "</span> likes <br/>\n";
+							echo '<span id="'.$product["product_id"].'_like">' . $product["likes"] . "</span> likes <br/>\n";
 							echo $product["purchases"] . " purchases<br/>\n";
-							echo '<span onclick=""> Like </span> <br/>';
+							echo '<input type="button" value="Like" onclick="increaseLike(' . $product["product_id"] . ')"> <br/>';
 							echo '<a href="#"> Buy </a> <br/><br/><hr/>';
 							echo "</td>\n";
 							echo "</tr>";
