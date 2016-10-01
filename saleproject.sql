@@ -34,7 +34,7 @@ CREATE TABLE `product` (
   PRIMARY KEY (`product_id`),
   KEY `seller` (`seller_id`),
   CONSTRAINT `seller` FOREIGN KEY (`seller_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (1,'sabun','nyabun',3,'2016-03-03 10:00:00',20000,'?',9),(2,'minyak','oil',4,'2016-03-13 15:00:00',30000,'?',9),(3,'kucing','ngeong',5,'2016-03-04 11:00:00',50000,'?',10);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,7 +72,7 @@ CREATE TABLE `purchase` (
   KEY `purchase_ibfk_2_idx1` (`buyer_id`),
   CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`product_purchased`) REFERENCES `product` (`product_id`),
   CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,6 +81,7 @@ CREATE TABLE `purchase` (
 
 LOCK TABLES `purchase` WRITE;
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
+INSERT INTO `purchase` VALUES (1,1,2,10,'Evangeline','Jalan ciblvadsvasdfd','40280','08138293726','123213123','bla','2016-09-17 20:00:00'),(2,3,2,10,'Saitama','Jalan ciblvadsvasdfd','40283','08138290000','323232323','bli','2016-09-17 21:00:00'),(3,2,5,9,'Frodo','Jalan fdsfsdf','40281','08133333334','222342123','blu','2016-09-17 17:30:00');
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +102,7 @@ CREATE TABLE `user` (
   `postalcode` varchar(5) DEFAULT NULL,
   `phonenumber` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,7 +111,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Michael','chills12','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(2,'a','asd','a','a','a','a','a'),(3,'Michael','asdf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(4,'Michael','asdfg','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(5,'Michael','asdfgh','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(6,'Michael','sadf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(7,'Michael','qwe','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(8,'Michael','adqwd','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(9,'tbc','admin','email@email.com','admin','asd','123','123');
+INSERT INTO `user` VALUES (1,'Michael','chills12','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(2,'a','asd','a','a','a','a','a'),(3,'Michael','asdf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(4,'Michael','asdfg','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(5,'Michael','asdfgh','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(6,'Michael','sadf','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(7,'Michael','qwe','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(8,'Michael','adqwd','miciltjandra@gmail.com','asdf','Pasar Selatan 29','40181','85223132878'),(9,'tbc','admin','email@email.com','admin','asd','123','123'),(10,'blabla','chloonix','dadsda@adaf.dsd','dsada','dafasfaf','12312','023123223442');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -122,4 +124,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-30  6:30:31
+-- Dump completed on 2016-10-01  9:30:09
