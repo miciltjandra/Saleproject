@@ -11,17 +11,7 @@
 		require_once 'menubar.php';
     ?>
 	<body class="middle">
-		<?php
-			session_start();
-			$user = $_SESSION["login"];
-			if ($user == "") {
-				echo "Unlogged";
-				header("Location: index.php");
-			}
-			else {
-				echo "user : " . $user;
-			}
-		?>
+		
 		<h1> What are you going to buy today? </h1>
 		<hr/>
 		<input type="text" name="search" id="search" value="search">
@@ -35,7 +25,7 @@
 						include 'retrieveproduct.php';
 						$result = retrieveproduct('');
 						while ($product = $result->fetch_assoc()) {
-							echo "<tr>";
+							echo "<tr>\n";
 							echo "<td>";
 							echo $product["username"] . "<br/>\n";
 							echo "added this on " . $product["added_date"] . "<br/>\n";
@@ -43,10 +33,13 @@
 							echo $product["product_name"] . "<br/>\n";
 							echo $product["price"] . "<br/>\n";
 							echo $product["description"] . "<br/>\n";
-							echo $product["likes"] . " likes<br/>\n";
+							echo '<span id="like">' . $product["likes"] . "</span> likes <br/>\n";
 							echo $product["purchases"] . " purchases<br/>\n";
-							echo "</td>";
+							echo '<span onclick=""> Like </span> <br/>';
+							echo '<a href="#"> Buy </a> <br/><br/><hr/>';
+							echo "</td>\n";
 							echo "</tr>";
+							echo "<br/>\n";
 						}
 						//echo $result["description"];
 						//echo $result;

@@ -43,21 +43,23 @@
 
 	if ($checkresult->num_rows !== 0) {
 		echo "Username already existed";
-		$valid = false;
+		//$valid = false;
+		header("register.php?q=error");
 	} else {
 		echo "Username OK";
-		$valid = true;
+		//$valid = true;
 	}
 
 	if (strcmp($password, $confirmpass) !== 0) {
 		echo "Password not confirmed <br>\n";
-		$valid2 = false;
+		header("register.php?q=error");
+		//$valid2 = false;
 	} else {
 		echo "Password confirmed <br>\n";
-		$valid2 = true;
+		//$valid2 = true;
 	}
 
-	if ($valid && $valid2) {
+	//if ($valid && $valid2) {
 		$query = "INSERT INTO user(fullname, username, email, password, address, postalcode, phonenumber)
 			VALUES(" .
 			"\"" . $name . "\"" . ", " .
@@ -72,20 +74,18 @@
 
 		if ($conn->query($query) === TRUE) {
 		    echo "Registration Success <br>\n";
-		    session_start();
 		    $idresult = $conn->query($checkquery);
 		    $user_id = $idresult->fetch_assoc()["user_id"];
 		    echo "user_id : " . $user_id;
-		    $_SESSION["login"] = $user_id;
-		    header("Location: catalog.php");
+		    header("Location: catalog.php?active_user=" . $user_id);
 		} else {
 		    die("Error : " . $conn->error);
 		}
-	}
-	else {
+	//}
+	/*else {
 		echo "not valid";
 		header("Location: register.php?q=error");
-	}
+	}*/
 
 	$conn->close();
 ?>

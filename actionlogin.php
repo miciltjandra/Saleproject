@@ -1,13 +1,6 @@
 <?php
-
-	echo $_SERVER['HTTP_REFERER'];
-
-
-	$username = $_POST["user"];
+	$user = $_POST["user"];
 	$password = $_POST["pass"];
-
-	echo $username . "<br/>\n";
-	echo $password . "<br/>\n";
 
 	$servername = "localhost";
 	$db_username = "wbd";
@@ -24,37 +17,37 @@
 		echo "Connected successfully <br>\n";
 	}
 
-	$query = "SELECT password
-	FROM user
-	WHERE username = '" . $username . "'";
+	if(strpos($user, '@') === false) {
+		$query = "SELECT user_id, password
+		FROM user
+		WHERE username = '" . $user . "'";
+	}
+	else {
+		$query = "SELECT user_id, password
+		FROM user
+		WHERE email = '" . $user . "'";
+	}
 
 	echo $query . "<br>\n"; 
 
 	$result = $conn->query($query);
 
 	if ($result->num_rows == 0) {
-		echo "Username not found </br>\n";
+		echo "User not found </br>\n";
+		header("Location: index.php?q=error");
 	}
-	$resultpassword = $result->fetch_assoc();
+	$row = $result->fetch_assoc();
 
-	echo $resultpassword["password"] . "<br/>\n";
+	echo $row["password"] . "<br/>\n";
 
-	if ($resultpassword["password"] === $password) {
+	if ($row["password"] === $password) {
 		echo "Login successful <br/>\n";
-		session_start();
-
-		$checkquery = "SELECT user_id
-		FROM user
-		WHERE username = \"" . $username . "\"";
-		$idresult = $conn->query($checkquery);
-		$user_id = $idresult->fetch_assoc()["user_id"];
-		$_SESSION["login"] = $user_id;
-		header("Location: catalog.php?id_active=" . $user_id);
+		header("Location: catalog.php?id_active=" . $row["user_id"]);
 	} else {
 		echo "Login error <br/>\n";
-		header("Location: index.php");
-		setcookie("login", "error");
+		header("Location: index.php?q=error");
 	}
 
+	$conn->close();
 
 ?>
