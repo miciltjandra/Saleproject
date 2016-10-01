@@ -1,5 +1,5 @@
 <?php
-	function retrieveproduct($category, $value) {
+	function retrieveproduct($str) {
 		$servername = "localhost";
 		$db_username = "wbd";
 		$db_password = "twinbaldchicken";
@@ -13,11 +13,24 @@
 		    die("Connection failed: " . $conn->connect_error);
 		}
 
-		$query = 'SELECT product_name, description, likes, added_date, price, image, username, count(purchase_id) as purchases
-		FROM product, user, purchase
-		WHERE ' . $category . '="' . $value . '" AND seller_id = user_id AND product_purchased = product_id';
+		if(!empty($str)) {
+			$str .= " AND ";
+		}
+
+		$query = 'SELECT product_name, description, likes, added_date, price, image, username, 
+		(SELECT sum(quantity) as q
+		 FROM purchase
+		 WHERE product_id = product_purchased) as purchases
+		FROM product, user
+		WHERE '. $str .'seller_id = user_id
+		ORDER BY added_date desc';
+
+		//$query = 'SELECT * FROM product';
 
 		$result = $conn->query($query);
+
+
+
 		return $result;
 	}
 

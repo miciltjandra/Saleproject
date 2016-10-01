@@ -20,7 +20,6 @@
 			}
 			else {
 				echo "user : " . $user;
-				$_SESSION["login"] = "";
 			}
 		?>
 		<h1> What are you going to buy today? </h1>
@@ -31,13 +30,13 @@
 		<input type="submit" value="go">
 		<br/>
 		<table name="productlist">
-			<tr>
-				<td>
 					<?php
 
 						include 'retrieveproduct.php';
-						$result = retrieveproduct('product_id', '2');
+						$result = retrieveproduct('');
 						while ($product = $result->fetch_assoc()) {
+							echo "<tr>";
+							echo "<td>";
 							echo $product["username"] . "<br/>\n";
 							echo "added this on " . $product["added_date"] . "<br/>\n";
 							echo '<img class="product_icon" height="100" src="data:image/jpg;base64,'. base64_encode($product["image"]) .'"/> <br/>' . "\n";
@@ -46,13 +45,13 @@
 							echo $product["description"] . "<br/>\n";
 							echo $product["likes"] . " likes<br/>\n";
 							echo $product["purchases"] . " purchases<br/>\n";
+							echo "</td>";
+							echo "</tr>";
 						}
 						//echo $result["description"];
 						//echo $result;
 
 					?>
-				</td>
-			</tr>
 		</table>
 		
 	</body>
