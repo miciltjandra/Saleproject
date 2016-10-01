@@ -24,9 +24,7 @@
 		?>
 		<div class="text large"> Here are your purchases </div>
 		<br><hr>
-		<br><br>
-		<div class="text">Tanggal</div>
-		<hr>
+		<br>
 	
 	</body>
 </html>

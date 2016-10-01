@@ -24,8 +24,6 @@
 		?>		
 		<div class="text large"> What are you going to sell today? </div>
 		<br><hr>
-		<br><br>
-		<div class="text">Tanggal</div>
-		<hr>	
+		<br>	
 	</body>
 </html>
