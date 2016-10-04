@@ -17,12 +17,12 @@
 		echo "Connected successfully <br>\n";
 	}
 
-	if(strpos($user, '@') === false) {
+	if(strpos($user, '@') === false) { 	// If using username
 		$query = "SELECT user_id, password
 		FROM user
 		WHERE username = '" . $user . "'";
 	}
-	else {
+	else { 								// If using email
 		$query = "SELECT user_id, password
 		FROM user
 		WHERE email = '" . $user . "'";
