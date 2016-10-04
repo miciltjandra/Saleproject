@@ -11,17 +11,6 @@
 		require_once 'menubar.php';
     ?>
 	<body class="middle">
-		<?php
-			session_start();
-			$user = $_SESSION["login"];
-			if ($user == "") {
-				echo "Unlogged";
-				header("Location: index.php");
-			}
-			else {
-				echo "user : " . $user;
-				$_SESSION["login"] = "";
-			}
-		?>
+		
 	</body>
 </html>

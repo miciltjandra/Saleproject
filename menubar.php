@@ -1,3 +1,4 @@
+<?php $user = $_GET["id_active"]; ?>
 <div class="middle fix">
 	<div style="text-align: right">Hi <strong>
 		<?php include 'actionmenubar.php'?>
