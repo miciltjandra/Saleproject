@@ -14,22 +14,23 @@
 		
 		<div class="text large"> Please add your product here </div>
 		<br /><hr />
-		<form action="actionadd.php" method="post" id="addform">
+		<form action="actionadd.php" method="post" id="addform" enctype="multipart/form-data">
 			<input type = "hidden" name = "user" value = <?php echo $_GET["id_active"]?> />
 			Name <br />
-			<input type="text" name="name"> 
+			<input type="text" name="name" /> 
 			<br />
 			Description (max 200 chars) <br />
 			<textarea rows="4" form="addform" name="desc"></textarea> 
 			<br />
 			Price (IDR) <br />
-			<input type="number" name="price"> 
+			<input type="number" name="price" /> 
 			<br />
 			Photo <br />
-			<input type="file" name="image"> <p id="">No file chosen</p> 
+			<input type="file" name="imagefile" accept="image/*" /> 
+			<p id="">No file chosen</p> 
 			<br />
-			<input type="submit" value="Add">
-			<input type="submit" value="Cancel">
+			<input type="submit" value="Add" name="addbtn" />
+			<input type="button" value="Cancel" />
 		</form>
 	</body>
 </html>
