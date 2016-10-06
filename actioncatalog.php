@@ -16,7 +16,7 @@
 		if(!empty($str)) {
 			$str .= " AND ";
 		}
-
+		
 		$query = 'SELECT product_id, product_name, description, likes, added_date, price, image, username, 
 		(SELECT sum(quantity) as q
 		 FROM purchase
@@ -33,6 +33,29 @@
 
 		return $result;
 	}
+	
+	function getSales($id){
+		$servername = "localhost";
+		$db_username = "wbd";
+		$db_password = "twinbaldchicken";
+		$db_database = "saleproject";
 
+		// Create connection
+		$conn = new mysqli($servername, $db_username, $db_password, $db_database);
 
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		}
+
+		$query = 'select *
+		from user join product join purchase where purchase.product_purchased = product.product_id and buyer_id = user_id
+		and seller_id = '.$id.'
+		ORDER BY added_date desc';
+		
+		$result = $conn->query($query);
+		
+		return $result;
+	}
+	
 ?>
