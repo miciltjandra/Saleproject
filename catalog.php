@@ -49,7 +49,7 @@
 					echo $product["description"] . "<br/>\n";
 					echo '<span id="'.$product["product_id"].'_like">' . $product["likes"] . "</span> likes <br/>\n";
 					echo $product["purchases"] . " purchases<br/>\n";
-					echo '<input type="button" value="Like" onclick="increaseLike(' . $product["product_id"] . ')"> <br/>';
+					echo '<a id="'.$product["product_id"].'_likebut" onclick="increaseLike(' . $product["product_id"] . ','. $_GET['id_active'] .')">'. getLiked($_GET['id_active'], $product['product_id']) .'</a><br/>';
 					echo '<a href="confirm_purchase.php?id_active=' . $_GET['id_active'] .'&product='.$product["product_id"].'"> Buy </a> <br/><br/><hr/>';
 					echo "</td>\n";
 					echo "</tr>";
