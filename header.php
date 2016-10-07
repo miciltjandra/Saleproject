@@ -1,3 +1,6 @@
 <div class="middle title">SaleProject</div>
-<br><br>
-<br><br>
+<?php 
+	if(!(isset($_GET["id_active"]))){
+		echo "<br /><br /><br />";
+	}
+?>
