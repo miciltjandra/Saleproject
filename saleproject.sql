@@ -27,7 +27,6 @@ CREATE TABLE `liked` (
   `user_id` int(10) DEFAULT NULL,
   KEY `product_id` (`product_id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `liked_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
   CONSTRAINT `liked_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -154,4 +153,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-07 22:08:37
+-- Dump completed on 2016-10-07 23:29:40

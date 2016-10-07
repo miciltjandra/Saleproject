@@ -60,7 +60,7 @@
 		    echo "Delete product success<br>\n";
 		    
 		    // Delete uploaded image
-		    unlink($row['image']);
+		    //unlink($row['image']);
 
 		    header("Location: yourproducts.php?id_active=" . $_GET["id_active"]);
 		} else {
