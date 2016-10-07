@@ -67,13 +67,9 @@ function validate(str, type)
 }
 
 function validateform() {
-	//alert("adsfasf");
-	return true;
 	var items = ["name", "user", "phone", "postcode"];
 	var valid = false;
 	for (var item in items) {
-		//alert(items[item]);
-		//alert(document.getElementById(items[item]).value);
 		var value = document.getElementById(items[item]).value;
 		var fieldvalid = validate(value,item);
 		if (!fieldvalid) {

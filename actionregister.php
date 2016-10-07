@@ -26,7 +26,7 @@
 
 	if (strcmp($password, $confirmpass) !== 0) {
 		echo "Password not confirmed <br>\n";
-		header("register.php?q=error");
+		header("Location: register.php?q=error");
 		exit();
 	} else {
 		echo "Password confirmed <br>\n";
