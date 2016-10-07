@@ -34,33 +34,42 @@
 		<input type="submit" name="submit_search" value="go">
 		</form>
 		<br/>
-		<table name="productlist">
 			<?php
 
 				include 'actioncatalog.php';
 				$result = retrieveproduct($type, $val);
 				foreach ($result as $product) {
-					echo "<tr>";
-					echo "<td>";
-					echo $product["username"] . "<br/>\n";
-					echo "added this on " . $product["added_date"] . "<br/>\n";
-					echo '<img class="product_icon" height="100" src="'. $product["image"] .'"/> <br/>' . "\n";
-					echo $product["product_name"] . "<br/>\n";
-					echo $product["price"] . "<br/>\n";
-					echo $product["description"] . "<br/>\n";
+					echo '<div class="product">' . "\n";
+					echo '<div class="catalogbold">' . $product["username"] . "</div>\n";
+					echo "<div>added this on " . $product["added_date"] . "</div>\n";
+					echo "<hr/>\n";
+					echo '<div class="catalogleft">' . "\n";
+					echo '<img class="icon" src="'. $product["image"] .'" alt="'. $product["product_name"] .'"/> <br/>' . "\n";
+					echo "</div>\n";
+					echo '<div class="catalogmid">' . "\n";
+					echo '<div class="name">' . $product["product_name"] . "</div>\n";
+					echo '<div class="price"> IDR ' . number_format($product["price"],0,",",".") . "</div>\n";
+					echo '<div class="desc">' . $product["description"] . "</div>\n";
+					echo "</div>\n";
+					echo '<div class="catalogright">' . "\n";
 					echo '<span id="'.$product["product_id"].'_like">' . $product["likes"] . "</span> likes <br/>\n";
-					if ($product["purchases"] == NULL) {echo "0";} else {echo $product["purchases"];} echo " purchases<br/>\n";
-					echo '<a id="'.$product["product_id"].'_likebut" onclick="increaseLike(' . $product["product_id"] . ','. $_GET['id_active'] .')">'. getLiked($_GET['id_active'], $product['product_id']) .'</a><br/>';
-					echo '<a href="confirm_purchase.php?id_active=' . $_GET['id_active'] .'&product='.$product["product_id"].'"> Buy </a> <br/><br/><hr/>';
-					echo "</td>";
-					echo "</tr>";
-					echo "<br/>\n";
+					if ($product["purchases"] == NULL) {echo "0";} else {echo $product["purchases"];} echo " purchases<br/><br/>\n";
+					$like = getLiked($_GET['id_active'], $product['product_id']);
+					echo '<a class="likebut';
+					if ($like == "LIKED") {echo " liked";}
+					echo '" id="'.$product["product_id"].'_likebut" onclick="increaseLike(' . $product["product_id"] . ','. $_GET['id_active'] .')">'. $like .'</a>	';
+					echo '<a class="buybut"href="confirm_purchase.php?id_active=' . $_GET['id_active'] .'&product='.$product["product_id"].'"> BUY </a>';
+					echo "</div>\n";
+					echo '<div class="cataloglow">' . "\n";
+					echo "<hr/>\n<br/>\n";
+					echo "</div>\n";
+					echo "</div>\n";
 				}
 				//echo $result["description"];
 				//echo $result;
 
 			?>
-		</table>
+
 		
 	</body>
 </html>

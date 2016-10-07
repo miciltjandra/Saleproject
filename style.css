@@ -69,3 +69,66 @@ a{
 .invalid {
 	border-color: #FF0000;
 }
+
+.catalogbold {
+	font-weight: bold;
+}
+
+.product {
+	width: 100%;
+	height: 250px;
+	margin: 10px auto;
+}
+
+.product .icon {
+	width: 150px;
+	height: 150px;
+}
+
+.product .catalogleft {
+	float: left;
+}
+
+.product .catalogmid {
+	float: left;
+}
+
+.product .catalogright {
+	width: 20%;
+	float: right;
+	padding: 4% 0;
+
+}
+
+.product .cataloglow {
+	clear: both;
+}
+
+.product .likebut.liked {
+	color: #FF0000;
+}
+
+.product .likebut {
+	color: #0000FF;
+	text-align: left;
+	font-weight: bold;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.product .buybut {
+	color: #00FF00;
+	float: right;
+	font-weight: bold;
+}
+
+.product .name {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 0 0 0;
+}
+
+.product .price {
+	font-size: 20px;
+	padding: 5px 0 5px 0;
+}

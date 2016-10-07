@@ -1,8 +1,14 @@
 function switchLike(product_id) {
-    if (document.getElementById(product_id+"_likebut").innerHTML === "Like") {
-        document.getElementById(product_id+"_likebut").innerHTML = "Liked";
+    if (document.getElementById(product_id+"_likebut").innerHTML === "LIKE") {
+        document.getElementById(product_id+"_likebut").innerHTML = "LIKED";
+        if (!document.getElementById(product_id+"_likebut").classList.contains("liked")) {
+            document.getElementById(product_id+"_likebut").classList.add("liked");
+        }
     } else {
-        document.getElementById(product_id+"_likebut").innerHTML = "Like";
+        document.getElementById(product_id+"_likebut").innerHTML = "LIKE";
+        if (document.getElementById(product_id+"_likebut").classList.contains("liked")) {
+            document.getElementById(product_id+"_likebut").classList.remove("liked");
+        }
     }
 }
 

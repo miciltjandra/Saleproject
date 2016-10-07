@@ -64,9 +64,9 @@
 		
 		$result = $db->select($query);
 		if (!empty($result)) {
-			$res = "Liked";
+			$res = "LIKED";
 		} else {
-			$res = "Like";
+			$res = "LIKE";
 		}
 		
 		return $res;
