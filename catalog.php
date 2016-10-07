@@ -41,7 +41,9 @@
 				foreach ($result as $product) {
 					echo '<div class="product">' . "\n";
 					echo '<div class="bold">' . $product["username"] . "</div>\n";
-					echo "<div>added this on " . $product["added_date"] . "</div>\n";
+					$time = strtotime($product["added_date"]);
+					$date = date("l, d F Y,", $time) . " at " . date("H.i", $time);
+					echo "<div>added this on " . $date . "</div>\n";
 					echo "<hr/>\n";
 					echo '<div class="catalogleft">' . "\n";
 					echo '<img class="icon" src="'. $product["image"] .'" alt="'. $product["product_name"] .'"/> <br/>' . "\n";
