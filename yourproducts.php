@@ -27,7 +27,7 @@
 						echo $product["added_date"] . "<br />\n";
 						echo '<div class="product_div">' . "\n";
 							echo "<hr />\n";
-							echo $product["image"]  . "<br />\n";
+							echo '<img src="' . $product["image"] . '" width=100 height=100 /><br />\n';
 							echo $product["product_name"]  . "<br />\n";
 							echo $product["price"]  . "<br />\n";
 							echo $product["description"]  . "<br />\n";
