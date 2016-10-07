@@ -32,6 +32,7 @@
 		<input type="radio" name="searchcategory" value="product_name" checked="checked"> product
 		<input type="radio" name="searchcategory" value="username"> store
 		<input type="submit" name="submit_search" value="go">
+		</form>
 		<br/>
 		<table name="productlist">
 			<?php
@@ -39,7 +40,7 @@
 				include 'actioncatalog.php';
 				$result = retrieveproduct($type, $val);
 				foreach ($result as $product) {
-					echo "<tr>\n";
+					echo "<tr>";
 					echo "<td>";
 					echo $product["username"] . "<br/>\n";
 					echo "added this on " . $product["added_date"] . "<br/>\n";
@@ -48,10 +49,10 @@
 					echo $product["price"] . "<br/>\n";
 					echo $product["description"] . "<br/>\n";
 					echo '<span id="'.$product["product_id"].'_like">' . $product["likes"] . "</span> likes <br/>\n";
-					echo $product["purchases"] . " purchases<br/>\n";
+					if ($product["purchases"] == NULL) {echo "0";} else {echo $product["purchases"];} echo " purchases<br/>\n";
 					echo '<a id="'.$product["product_id"].'_likebut" onclick="increaseLike(' . $product["product_id"] . ','. $_GET['id_active'] .')">'. getLiked($_GET['id_active'], $product['product_id']) .'</a><br/>';
 					echo '<a href="confirm_purchase.php?id_active=' . $_GET['id_active'] .'&product='.$product["product_id"].'"> Buy </a> <br/><br/><hr/>';
-					echo "</td>\n";
+					echo "</td>";
 					echo "</tr>";
 					echo "<br/>\n";
 				}

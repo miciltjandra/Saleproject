@@ -14,11 +14,24 @@
 	FROM user
 	WHERE username = " . $username;
 
+	$checkemail = "SELECT user_id
+	FROM user
+	WHERE email = " . $email;
+
 	$checkresult = $db->select($checkquery);
 
 	if (!empty($checkresult)) {
 		echo "Username already existed";
 		header("Location: register.php?q=error");
+		exit();
+	} else {
+		echo "Username OK";
+	}
+
+	$emailresult = $db->select($checkemail);
+	if (!empty($emailresult)) {
+		echo "Email already existed";
+		//header("Location: register.php?q=error");
 		exit();
 	} else {
 		echo "Username OK";
