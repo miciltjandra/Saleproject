@@ -41,6 +41,11 @@ class Database {
         }
         return $rows;
     }
+
+    public function quote($value) {
+        $connection = $this -> connect();
+        return "'" . $connection -> real_escape_string($value) . "'";
+    }
 }
 
 ?>

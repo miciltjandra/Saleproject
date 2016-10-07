@@ -1,19 +1,19 @@
 <?php
 	require_once 'database.php';
 	$db = new Database();
-	$user = $_POST["user"];
+	$user = $db->quote($_POST["user"]);
 	$password = $_POST["pass"];
 
 
 	if(strpos($user, '@') === false) { 	// If using username
 		$query = "SELECT user_id, password
 		FROM user
-		WHERE username = '" . $user . "'";
+		WHERE username = " . $user;
 	}
 	else { 								// If using email
 		$query = "SELECT user_id, password
 		FROM user
-		WHERE email = '" . $user . "'";
+		WHERE email = " . $user;
 	}
 
 	echo $query . "<br>\n"; 
@@ -22,7 +22,7 @@
 
 	if (empty($result)) {
 		echo "User not found </br>\n";
-		//header("Location: index.php?q=error");
+		header("Location: index.php?q=error");
 	} else {
 		echo $result[0]["password"] . "<br/>\n";
 		if ($result[0]["password"] === $password) {
