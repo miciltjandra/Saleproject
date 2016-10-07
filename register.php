@@ -10,7 +10,7 @@
 	    require_once 'header.php';
     ?>
 	<body class="middle">
-		<form action="actionregister.php" method="post" id="registerform" onsubmit="return validateform()" class="text">
+		<form onsubmit="return validateform()" action="actionregister.php" method="post" id="registerform" class="text">
 			<legend class="text large"> Registration </legend>
 			<hr/>
 

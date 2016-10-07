@@ -1,91 +1,62 @@
 <?php
-	$name = $_POST["name"];
-	$username = $_POST["user"];
-	$email = $_POST["email"];
-	$password = $_POST["pass"];
-	$confirmpass = $_POST["confirmpass"];
-	$address = $_POST["address"];
-	$postcode = $_POST["postcode"];
-	$phone = $_POST["phone"];
-
-	echo $name . "<br/>\n";
-	echo $username . "<br/>\n";
-	echo $email . "<br/>\n";
-	echo $password . "<br/>\n";
-	echo $confirmpass . "<br/>\n";
-	echo $address . "<br/>\n";
-	echo $postcode . "<br/>\n";
-	echo $phone . "<br/>\n";
-
-	$servername = "localhost";
-	$db_username = "wbd";
-	$db_password = "twinbaldchicken";
-	$db_database = "saleproject";
-
-	// Create connection
-	$conn = new mysqli($servername, $db_username, $db_password, $db_database);
-
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	} else {
-		echo "Connected successfully <br>\n";
-	}
-
-	$valid = false;
-	$valid2 = false;
+	require_once 'database.php';
+	$db = new Database();
+	$name = $db->quote($_POST["name"]);
+	$username = $db->quote($_POST["user"]);
+	$email = $db->quote($_POST["email"]);
+	$password = $db->quote($_POST["pass"]);
+	$confirmpass = $db->quote($_POST["confirmpass"]);
+	$address = $db->quote($_POST["address"]);
+	$postcode = $db->quote($_POST["postcode"]);
+	$phone = $db->quote($_POST["phone"]);
 
 	$checkquery = "SELECT user_id
 	FROM user
-	WHERE username = \"" . $username . "\"";
+	WHERE username = " . $username;
 
-	$checkresult = $conn->query($checkquery);
+	$checkresult = $db->select($checkquery);
 
-	if ($checkresult->num_rows !== 0) {
+	if (!empty($checkresult)) {
 		echo "Username already existed";
-		//$valid = false;
-		header("register.php?q=error");
+		header("Location: register.php?q=error");
+		exit();
 	} else {
 		echo "Username OK";
-		//$valid = true;
 	}
 
 	if (strcmp($password, $confirmpass) !== 0) {
 		echo "Password not confirmed <br>\n";
 		header("register.php?q=error");
-		//$valid2 = false;
+		exit();
 	} else {
 		echo "Password confirmed <br>\n";
-		//$valid2 = true;
 	}
 
 	//if ($valid && $valid2) {
 		$query = "INSERT INTO user(fullname, username, email, password, address, postalcode, phonenumber)
 			VALUES(" .
-			"\"" . $name . "\"" . ", " .
-			"\"" . $username . "\"" . ", " .
-			"\"" . $email . "\"" . ", " .
-			"\"" . $password . "\"" . ", " .
-			"\"" . $address . "\"" . ", " .
-			"\"" . $postcode . "\"" . ", " .
-			"\"" . $phone . "\"" . ")";
+			$name . ", " .
+			$username . ", " .
+			$email . ", " .
+			$password . ", " .
+			$address . ", " .
+			$postcode . ", " .
+			$phone . ")";
 
 		echo $query . "<br/>\n";
 
-		if ($conn->query($query) === TRUE) {
+		if ($db->query($query) === TRUE) {
 		    echo "Registration Success <br>\n";
-		    $idresult = $conn->query($checkquery);
+		    $idresult = $db->query($checkquery);
 		    $user_id = $idresult->fetch_assoc()["user_id"];
 		    echo "user_id : " . $user_id;
-		    header("Location: catalog.php?active_user=" . $user_id);
+		    header("Location: catalog.php?id_active=" . $user_id);
 		} else {
 		    die("Error : " . $conn->error);
 		}
 	//}
 	/*else {
 		echo "not valid";
-		header("Location: register.php?q=error");
+		//header("Location: register.php?q=error");
 	}*/
-
-	$conn->close();
 ?>

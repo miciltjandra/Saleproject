@@ -67,11 +67,16 @@ function validate(str, type)
 }
 
 function validateform() {
+	//alert("adsfasf");
+	return true;
 	var items = ["name", "user", "phone", "postcode"];
-	var valid = true;
+	var valid = false;
 	for (var item in items) {
-		var value = document.getElementById(item).value;
-		if (!validate(value,item)) {
+		//alert(items[item]);
+		//alert(document.getElementById(items[item]).value);
+		var value = document.getElementById(items[item]).value;
+		var fieldvalid = validate(value,item);
+		if (!fieldvalid) {
 			valid = false;
 		}
 		if (item == "user") {
@@ -82,4 +87,5 @@ function validateform() {
 		alert("Please make sure every field is valid")
 		return false;
 	}
+	alert(valid);
 }
