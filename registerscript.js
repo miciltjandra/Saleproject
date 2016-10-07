@@ -68,20 +68,21 @@ function validate(str, type)
 
 function validateform() {
 	var items = ["name", "user", "phone", "postcode"];
-	var valid = false;
+	var valid = true;
 	for (var item in items) {
 		var value = document.getElementById(items[item]).value;
-		var fieldvalid = validate(value,item);
+		var fieldvalid = validate(value,items[item]);
 		if (!fieldvalid) {
 			valid = false;
+			//alert(items[item]);
 		}
-		if (item == "user") {
+		/*if (items[item] == "user") {
 			valid = valid && searchUsername(value);
-		}
+			alert(searchUsername(value));
+		}*/
 	}
 	if ((!valid) || (!confirmPassword())) {
-		alert("Please make sure every field is valid")
+		alert("Please make sure every field is valid");
 		return false;
 	}
-	alert(valid);
 }
