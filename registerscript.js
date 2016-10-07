@@ -30,11 +30,15 @@ function confirmPassword() {
 	var pass = document.getElementById("pass");
 	var pass2 = document.getElementById("pass2");
 	if(pass.value != pass2.value) {
-		document.getElementById("diffpass").innerHTML = "Different password";
+		if (!document.getElementById("pass2").classList.contains("invalid")) {
+    		document.getElementById("pass2").classList.add("invalid");
+    	}
 		return false;
 	}
 	else {
-		document.getElementById("diffpass").innerHTML = "Confirmed";
+		if (document.getElementById("pass2").classList.contains("invalid")) {
+    		document.getElementById("pass2").classList.remove("invalid");
+    	}
 		return true;
 	}
 }
@@ -57,11 +61,16 @@ function validate(str, type)
 	}
 
     if(re.test(str)) {
-    	document.getElementById("valid"+type).innerHTML = "Valid";
+    	if (document.getElementById(type).classList.contains("invalid")) {
+    		document.getElementById(type).classList.remove("invalid");
+    	}
+
     	return true;
     }
     else {
-    	document.getElementById("valid"+type).innerHTML = "Invalid";
+    	if (!document.getElementById(type).classList.contains("invalid")) {
+    		document.getElementById(type).classList.add("invalid");
+    	}
     	return false;
     }
 }

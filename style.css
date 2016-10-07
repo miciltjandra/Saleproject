@@ -65,3 +65,7 @@ a{
 	color: white;
 	border-color:black;
 }
+
+.invalid {
+	border-color: #FF0000;
+}
