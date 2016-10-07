@@ -59,9 +59,9 @@
 		$db = new Database();
 
 		$query = 'select *
-		from user join product join purchase where purchase.product_purchased = product.product_id and seller_id = user_id
+		from user join product join purchase where seller_id = user_id
 		and product_id = '.$id.'
-		ORDER BY added_date desc';
+		LIMIT 1';
 		
 		$result = $db->query($query);
 		

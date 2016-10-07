@@ -25,7 +25,7 @@
 					echo "<div style='height:250px'>";
 					echo $product["purchase_date"] . "<br/><hr>";
 					echo "<div style='float:left'>";
-					echo '<img class="product_icon" height="200px" src="'. $product["image"] .'"/> <br/>' . "\n";
+					echo '<img class="product_icon" height="180px" width="180" src="'. $product["image"] .'"/> <br/>' . "\n";
 					echo "</div><div style='float:left'>";
 					echo "<p style='font-weight:bold'>". $product["product_name"] . "</p><br/>\n";
 					echo $product["quantity"] . " pcs<br/>\n";
