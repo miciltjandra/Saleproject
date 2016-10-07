@@ -1,4 +1,8 @@
 function valNumber(val, id) {
+    if (document.getElementById(id).value.length > 15) {
+        document.getElementById(id).value = document.getElementById(id).value.slice(0,15); 
+    }
+
 	var regex = /^[0-9]+$/;
 
 	if(regex.test(val)) {
