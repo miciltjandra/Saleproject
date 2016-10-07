@@ -3,6 +3,7 @@
 	<head>
 		<title> Edit Product </title>
 		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="addscript.js"></script>
 	</head>
 	<?php
 	    require 'header.php';
@@ -22,13 +23,13 @@
 			<input type = "hidden" name = "user" value = <?php echo $_GET["id_active"]?> />
 			<input type = "hidden" name = "product" value = <?php echo $_GET["product"]?> />
 			Name <br />
-			<input type="text" name="name" value = <?php echo $product["product_name"] ?> /> 
+			<input id="edit_name" type="text" name="name" value = <?php echo $product["product_name"] ?> oninput="valNotEmpty(this.value, 'edit_name')" required/> 
 			<br />
 			Description (max 200 chars) <br />
-			<textarea rows="4" form="addform" name="desc"><?php echo $product["description"] ?></textarea> 
+			<textarea id="edit_desc" rows="4" form="addform" name="desc" oninput="valNotEmpty(this.value, 'edit_desc')" required><?php echo $product["description"] ?></textarea> 
 			<br />
 			Price (IDR) <br />
-			<input type="number" name="price" value = <?php echo $product["price"] ?> /> 
+			<input id="edit_price" type="number" name="price" value = <?php echo $product["price"] ?> oninput="valNumber(this.value, 'edit_price')" required/> 
 			<br />
 			Photo <br />
 			<input type="file" name="imagefile" accept="image/*" value = <?php echo $product["image"] ?> /> 
