@@ -43,7 +43,7 @@
 					echo "<td>";
 					echo $product["username"] . "<br/>\n";
 					echo "added this on " . $product["added_date"] . "<br/>\n";
-					echo '<img class="product_icon" height="100" src="data:image/jpg;base64,'. base64_encode($product["image"]) .'"/> <br/>' . "\n";
+					echo '<img class="product_icon" height="100" src="'. $product["image"] .'"/> <br/>' . "\n";
 					echo $product["product_name"] . "<br/>\n";
 					echo $product["price"] . "<br/>\n";
 					echo $product["description"] . "<br/>\n";
