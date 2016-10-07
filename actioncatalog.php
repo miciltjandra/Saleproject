@@ -54,6 +54,19 @@
 		
 		return $result;
 	}
+	
+	function getItem($id){
+		$db = new Database();
+
+		$query = 'select *
+		from user join product join purchase where purchase.product_purchased = product.product_id and seller_id = user_id
+		and product_id = '.$id.'
+		ORDER BY added_date desc';
+		
+		$result = $db->query($query);
+		
+		return $result;
+	}
 
 	function getLiked($user, $prod) {
 		$db = new Database();
