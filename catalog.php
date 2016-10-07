@@ -17,12 +17,12 @@
 			if (isset($_POST['submit_search'])) {
 				$type = $_POST['searchcategory'];
 				$val = $_POST['search'];
-				$query = $type . ' like "%' . $val . '%"'; 
 			}
 			else {
-				$query = '';
+				$type = '';
+				$val = '';
 			}
-			echo $query . 'a';
+			echo $type . 'and' . $val;
 		?>
 		
 		<h1> What are you going to buy today? </h1>
@@ -37,8 +37,8 @@
 			<?php
 
 				include 'actioncatalog.php';
-				$result = retrieveproduct($query);
-				while ($product = $result->fetch_assoc()) {
+				$result = retrieveproduct($type, $val);
+				foreach ($result as $product) {
 					echo "<tr>\n";
 					echo "<td>";
 					echo $product["username"] . "<br/>\n";

@@ -18,7 +18,6 @@ class Database {
             echo "error";
             return false;
         }
-        echo "connect successful";
         return self::$connection;
     }
 

@@ -1,20 +1,15 @@
 <?php
-	function retrieveproduct($str) {
-		$servername = "localhost";
-		$db_username = "wbd";
-		$db_password = "twinbaldchicken";
-		$db_database = "saleproject";
+	require_once 'database.php';
+	function retrieveproduct($type, $val) {
+		$db = new Database();
 
-		// Create connection
-		$conn = new mysqli($servername, $db_username, $db_password, $db_database);
-
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
-
-		if(!empty($str)) {
-			$str .= " AND ";
+		if (!empty($type) && !empty($val)) {
+			$value = "%" . $val . "%";
+			$value = $db->quote($value);
+			$str = $type . " like " . $value;
+			$str .= ' AND ';
+		} else {
+			$str = '';
 		}
 		
 		$query = 'SELECT product_id, product_name, description, likes, added_date, price, image, username, 
@@ -27,7 +22,7 @@
 
 		//$query = 'SELECT * FROM product';
 
-		$result = $conn->query($query);
+		$result = $db->select($query);
 
 
 
@@ -35,73 +30,40 @@
 	}
 	
 	function getSales($id){
-		$servername = "localhost";
-		$db_username = "wbd";
-		$db_password = "twinbaldchicken";
-		$db_database = "saleproject";
-
-		// Create connection
-		$conn = new mysqli($servername, $db_username, $db_password, $db_database);
-
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
+		$db = new Database();
 
 		$query = 'select *
 		from user join product join purchase where purchase.product_purchased = product.product_id and buyer_id = user_id
 		and seller_id = '.$id.'
 		ORDER BY added_date desc';
 		
-		$result = $conn->query($query);
+		$result = $db->query($query);
 		
 		return $result;
 	}
 	
 	function getPurchases($id){
-		$servername = "localhost";
-		$db_username = "wbd";
-		$db_password = "twinbaldchicken";
-		$db_database = "saleproject";
-
-		// Create connection
-		$conn = new mysqli($servername, $db_username, $db_password, $db_database);
-
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
+		$db = new Database();
 
 		$query = 'select *
 		from user join product join purchase where purchase.product_purchased = product.product_id and seller_id = user_id
 		and buyer_id = '.$id.'
 		ORDER BY added_date desc';
 		
-		$result = $conn->query($query);
+		$result = $db->query($query);
 		
 		return $result;
 	}
 
 	function getLiked($user, $prod) {
-		$servername = "localhost";
-		$db_username = "wbd";
-		$db_password = "twinbaldchicken";
-		$db_database = "saleproject";
-
-		// Create connection
-		$conn = new mysqli($servername, $db_username, $db_password, $db_database);
-
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
+		$db = new Database();
 
 		$query = 'SELECT *
 		FROM liked
 		WHERE user_id="'. $user .'" AND product_id="'. $prod . '"';
 		
-		$result = $conn->query($query);
-		if ($result->num_rows !== 0) {
+		$result = $db->select($query);
+		if (!empty($result)) {
 			$res = "Liked";
 		} else {
 			$res = "Like";
