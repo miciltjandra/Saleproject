@@ -24,9 +24,9 @@
 				$var = $product['price'];
 			}
 		?>
-		<form action="actionadd.php" method="post" id="addform" enctype="multipart/form-data">
+		<form action="actionbuy.php" method="post" id="addform" enctype="multipart/form-data">
 			Quantity:
-			<input type="number" id="quantity" autocomplete="off" onInput="myFunction()"/> <br>
+			<input type="number" id="quantity" name="quantity" autocomplete="off" onInput="myFunction()"/> PCS<br>
 			<p id="demo">Total Price: IDR</p>
 		
 			<script>
@@ -60,8 +60,11 @@
 			<br /><br />
 			
 			<br />
-			<input type="submit" value="Confirm" name="confirm" />
-			<input type="button" value="Cancel" />
+			<div style="float:right">
+				<input type="submit" value="Confirm" name="confirm" />
+				<input type="button" value="Cancel" />
+			</div>
 		</form>
+		<br><br>
 	</body>
 </html>

@@ -22,12 +22,15 @@
 				$result = getPurchases($_GET["id_active"]);
 				while ($product = $result->fetch_assoc()) {
 					
-					echo "<div style='height:250px'>";
-					echo $product["purchase_date"] . "<br/><hr>";
+					echo "<div style='height:260px'>";
+					$time = strtotime($product["purchase_date"]);
+					$date = "<div class='bold'>".  date("l, d F Y ", $time) . " </div><br> at " . date("H.i", $time);
+					echo $date . "<br/><hr>";
 					echo "<div style='float:left'>";
 					echo '<img class="product_icon" height="180px" width="180" src="'. $product["image"] .'"/> <br/>' . "\n";
 					echo "</div><div style='float:left'>";
 					echo "<p style='font-weight:bold'>". $product["product_name"] . "</p><br/>\n";
+					echo "IDR ". $product["quantity"] * $product["price"]. " <br>";
 					echo $product["quantity"] . " pcs<br/>\n";
 					echo "@IDR " . $product["price"] . "<br/><br>\n";
 					echo 'Bought from '.$product["username"] . "<br/>\n";
