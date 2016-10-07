@@ -44,7 +44,7 @@
 			<input type="text" name="consignee" /> 
 			<br /><br />
 			Full Address <br />
-			<textarea rows="4" form="addform" name="address"></textarea> 
+			<textarea rows="4" form="addform" name="deliv_address"></textarea> 
 			<br /><br />
 			Postal Code <br />
 			<input type="number" name="postal" /> 

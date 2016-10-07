@@ -33,7 +33,7 @@
 					echo 'Bought by '.$product["username"] . "<br/>\n";
 					echo "</div><div style='margin-left:40%'>";
 					echo 'Delivery to '.$product["consignee"] . "<br/>\n";
-					echo $product["address"] . "<br/>\n";
+					echo $product["deliv_address"] . "<br/>\n";
 					echo $product["postalcode"] . "<br/>\n";
 					echo $product["phone"] . "<br/>\n";
 					echo "</div>";

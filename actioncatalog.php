@@ -28,27 +28,26 @@
 
 		return $result;
 	}
-	
+	// user join product join     purchase.product_purchased = product.product_id and buyer_id = user_id and
 	function getSales($id){
 		$db = new Database();
 
 		$query = 'select *
-		from user join product join purchase where purchase.product_purchased = product.product_id and buyer_id = user_id
-		and seller_id = '.$id.'
-		ORDER BY added_date desc';
+		from purchase join user where buyer_id = user_id and seller_id = '.$id.'
+		ORDER BY purchase_date desc';
 		
 		$result = $db->query($query);
 		
 		return $result;
 	}
-	
+	//user join product join  purchase.product_purchased = product.product_id and seller_id = user_id
 	function getPurchases($id){
 		$db = new Database();
 
 		$query = 'select *
-		from user join product join purchase where purchase.product_purchased = product.product_id and seller_id = user_id
-		and buyer_id = '.$id.'
-		ORDER BY added_date desc';
+		from purchase join user where seller_id = user_id and
+		buyer_id = '.$id.'
+		ORDER BY purchase_date desc';
 		
 		$result = $db->query($query);
 		
@@ -59,8 +58,7 @@
 		$db = new Database();
 
 		$query = 'select *
-		from user join product join purchase where seller_id = user_id
-		and product_id = '.$id.'
+		from product where product_id = '.$id.'
 		LIMIT 1';
 		
 		$result = $db->query($query);
