@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.16-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.13  Distrib 5.7.11, for Win64 (x86_64)
 --
 -- Host: localhost    Database: saleproject
 -- ------------------------------------------------------
--- Server version	10.1.16-MariaDB
+-- Server version	5.7.11-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -87,7 +87,7 @@ CREATE TABLE `purchase` (
   `quantity` int(10) DEFAULT NULL,
   `buyer_id` int(10) DEFAULT NULL,
   `consignee` varchar(100) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
+  `deliv_address` varchar(100) DEFAULT NULL,
   `postalcode` varchar(5) DEFAULT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `creditcard` varchar(12) DEFAULT NULL,
@@ -154,4 +154,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-07 21:01:06
+-- Dump completed on 2016-10-07 22:08:37
