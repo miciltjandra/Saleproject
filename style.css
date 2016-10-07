@@ -91,6 +91,8 @@ a{
 
 .product .catalogmid {
 	float: left;
+	width: 60%;
+	word-wrap: break-word;
 }
 
 .product .catalogright {
@@ -117,7 +119,7 @@ a{
 }
 
 .product .buybut {
-	color: #00FF00;
+	color: #669966;
 	float: right;
 	font-weight: bold;
 }
@@ -131,4 +133,36 @@ a{
 .product .price {
 	font-size: 20px;
 	padding: 5px 0 5px 0;
+}
+
+#searchbox {
+	width: 100%;
+	padding : 30px 0;
+	position: relative;
+}
+
+#search {
+	width: 90%;
+	height: 40px;
+	background-color: #EEEEEE;
+	border: none;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+#submitsearch {
+	width: 60px;
+	height: 40px;
+	float: right;
+	border: none;
+	color: white;
+	background-color: #6666FF;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.searchradio {
+	position: absolute;
+	font-size: 18px;
+	left: 50px;	
 }

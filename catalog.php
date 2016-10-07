@@ -22,16 +22,16 @@
 				$type = '';
 				$val = '';
 			}
-			echo $type . 'and' . $val;
 		?>
 		
 		<h1> What are you going to buy today? </h1>
 		<hr/>
-		<form action="catalog.php?id_active=<?php echo $_GET['id_active'];?>" method="post">
-		<input type="text" name="search" id="search" placeholder="search">
-		<input type="radio" name="searchcategory" value="product_name" checked="checked"> product
-		<input type="radio" name="searchcategory" value="username"> store
-		<input type="submit" name="submit_search" value="go">
+		<form id="searchbox" action="catalog.php?id_active=<?php echo $_GET['id_active'];?>" method="post">
+		<input type="text" name="search" id="search" placeholder="Search catalog ...">
+		<input type="submit" id="submitsearch" name="submit_search" value="GO"> <br/>
+		by
+		<label class="searchradio"><input type="radio" name="searchcategory" value="product_name" checked="checked"> product </label><br/>
+		<label class="searchradio"><input type="radio" name="searchcategory" value="username"> store </label>
 		</form>
 		<br/>
 			<?php
