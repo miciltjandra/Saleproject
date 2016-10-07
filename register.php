@@ -21,26 +21,26 @@
 				}
 			?>
 			Full Name <br/>
-			<input type="text" name="name" id="name" required="required" oninput="validate(this.value, this.name)"> <br/>
+			<input type="text" class="reg_text" name="name" id="name" required="required" oninput="validate(this.value, this.name)"> <br/>
 			Username <br/>
-			<input type="text" name="user" id="user" required="required" oninput="searchUsername(this.value);validate(this.value,this.name)">
+			<input type="text" class="reg_text" name="user" id="user" required="required" oninput="searchUsername(this.value);validate(this.value,this.name)">
 			<span id="userexist"></span> <br/>
 			Email <br/>
-			<input type="text" name="email" id="email" required="required" oninput="validate(this.value, this.name)"> <br/>
+			<input type="text" class="reg_text" name="email" id="email" required="required" oninput="validate(this.value, this.name)"> <br/>
 			Password <br/>
-			<input type="password" name="pass" id="pass" required="required"> <br/>
+			<input type="password" class="reg_text" name="pass" id="pass" required="required"> <br/>
 			Confirm Password <br/>
-			<input type="password" name="confirmpass" id="pass2" required="required" oninput="confirmPassword()"> <br/>
+			<input type="password" class="reg_text" name="confirmpass" id="pass2" required="required" oninput="confirmPassword()"> <br/>
 			Full Address <br/>
-			<input type="text" name="address" id="address" required="required"> <br/>
+			<input type="text" class="reg_text" name="address" id="address" required="required"> <br/>
 			Postal Code <br/>
-			<input type="text" name="postcode" id="postcode" maxlength="5" required="required" oninput="validate(this.value,this.name)"><br/>
+			<input type="text" class="reg_text" name="postcode" id="postcode" maxlength="5" required="required" oninput="validate(this.value,this.name)"><br/>
 			Phone Number <br/>
-			<input type="text" name="phone" id="phone" maxlength="12" required="required" oninput="validate(this.value,this.name)"><br/>
-			<input type="submit" value="Register" id="registersubmit">
+			<input type="text" class="reg_text" name="phone" id="phone" maxlength="12" required="required" oninput="validate(this.value,this.name)"><br/>
+			<input type="submit" class="submit" value="Register" id="registersubmit">
 		</form>
 		<br/>
-		Already have an account? Login <a href="index.php"> here </a>
+		<div class="text clear bold"> Already have an account? Login <a class="blue" href="index.php"> here </a> </div>
 	</body>
 
 </html>

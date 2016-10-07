@@ -1,35 +1,22 @@
 <?php
-		$userid = $_GET["id_active"];
+	require_once 'database.php';
+	$db = new Database();
+	$userid = $db->quote($_GET["id_active"]);
 
-		$servername = "localhost";
-		$db_username = "wbd";
-		$db_password = "twinbaldchicken";
-		$db_database = "saleproject";
+	$query = "SELECT username
+	FROM user
+	WHERE user_id = " . $userid . "";
 
-		// Create connection
-		$conn = new mysqli($servername, $db_username, $db_password, $db_database);
+	$result = $db->query($query);
 
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		}
+	if ($result->num_rows == 0) {
+		echo "User not found </br>\n";
+		header("Location: index.php?q=error");
+	}
 
-		$query = "SELECT username
-		FROM user
-		WHERE user_id = '" . $userid . "'";
-
-		$result = $conn->query($query);
-
-		if ($result->num_rows == 0) {
-			echo "User not found </br>\n";
-			header("Location: index.php?q=error");
-		}
-
-		$row = $result->fetch_assoc();
+	$row = $result->fetch_assoc();
 
 
 
-		echo $row["username"];
-
-		$conn->close();
+	echo $row["username"];
 ?>

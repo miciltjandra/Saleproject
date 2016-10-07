@@ -28,7 +28,7 @@
 		<hr/>
 		<form id="searchbox" action="catalog.php?id_active=<?php echo $_GET['id_active'];?>" method="post">
 		<input type="text" name="search" id="search" placeholder="Search catalog ...">
-		<input type="submit" id="submitsearch" name="submit_search" value="GO"> <br/>
+		<input type="submit" class="submit" id="submitsearch" name="submit_search" value="   GO   "> <br/>
 		by
 		<label class="searchradio"><input type="radio" name="searchcategory" value="product_name" checked="checked"> product </label><br/>
 		<label class="searchradio"><input type="radio" name="searchcategory" value="username"> store </label>
@@ -40,7 +40,7 @@
 				$result = retrieveproduct($type, $val);
 				foreach ($result as $product) {
 					echo '<div class="product">' . "\n";
-					echo '<div class="catalogbold">' . $product["username"] . "</div>\n";
+					echo '<div class="bold">' . $product["username"] . "</div>\n";
 					echo "<div>added this on " . $product["added_date"] . "</div>\n";
 					echo "<hr/>\n";
 					echo '<div class="catalogleft">' . "\n";
@@ -60,7 +60,7 @@
 					echo '" id="'.$product["product_id"].'_likebut" onclick="increaseLike(' . $product["product_id"] . ','. $_GET['id_active'] .')">'. $like .'</a>	';
 					echo '<a class="buybut"href="confirm_purchase.php?id_active=' . $_GET['id_active'] .'&product='.$product["product_id"].'"> BUY </a>';
 					echo "</div>\n";
-					echo '<div class="cataloglow">' . "\n";
+					echo '<div class="clear">' . "\n";
 					echo "<hr/>\n<br/>\n";
 					echo "</div>\n";
 					echo "</div>\n";

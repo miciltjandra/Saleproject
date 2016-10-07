@@ -20,13 +20,13 @@
 				}
 			?>
 			Email or Username <br/>
-			<input type = "text" name = "user"> <br/>
+			<input type = "text" class="reg_text" name = "user"> <br/>
 			Password <br/>
-			<input type = "password" name = "pass"> <br/>
-			<input type = "submit" value = "Login">
+			<input type = "password" class="reg_text" name = "pass"> <br/>
+			<input type = "submit" class="submit" value = "Login">
 		</form>
 		<br/>
-		<div class="text">Don't have an account yet? Register <a href = "register.php"> here </a></div>
+		<div class="text clear bold">Don't have an account yet? Register <a href = "register.php" class="blue"> here </a></div>
 	</body>
 
 </html>
