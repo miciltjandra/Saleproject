@@ -32,7 +32,7 @@
 			<br />
 			Photo <br />
 			<input type="file" name="imagefile" accept="image/*" value = <?php echo $product["image"] ?> /> 
-			<p id="">No file chosen</p> 
+			<p id="" ><?php echo $product["image"] ?></p> 
 			<br />
 			<input type="submit" value="Update" name="updatebtn" />
 			<input type="submit" value="Cancel" name="cancelbtn"/>

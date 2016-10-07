@@ -38,6 +38,7 @@ CREATE TABLE `liked` (
 
 LOCK TABLES `liked` WRITE;
 /*!40000 ALTER TABLE `liked` DISABLE KEYS */;
+INSERT INTO `liked` VALUES (13,9);
 /*!40000 ALTER TABLE `liked` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +70,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'sabun','nyabun nyabunan sini hayu',3,'2016-10-06 17:19:00',20000,'',9),(2,'minyak','oil',6,'2016-03-13 15:00:00',30000,'?',9),(3,'kucing','ngeong',5,'2016-03-04 11:00:00',50000,'?',10),(4,'haha','hihihi',NULL,'2016-10-05 05:09:00',12345,'C:UsersJoshua A KosasihDocuments[kuliah] WBDChicks-In-Hats1.jpg',2),(5,'waw','wiw',2,'2016-10-05 18:02:00',10000,'',3),(6,'adi','jadi adi suka sama dia',0,'2016-10-06 17:18:00',500,'',9),(7,'hah','hoh',0,'2016-10-06 17:07:00',1,'',3),(8,'qwer','qwerty',0,'2016-10-06 17:51:00',1234,NULL,9),(10,'wahh','wahaha',0,'2016-10-06 18:37:00',12,'/xampp/htdocs/TugasBesar1_SaleProject/images/Chicks-In-Hats1.jpg',9),(11,'yeuh','yeuhyeuh',0,'2016-10-06 18:44:00',1010,'/xampp/htdocs/TugasBesar1_SaleProject/images/Graphviz.png',9),(12,'asdf',';lkj',0,'2016-10-06 18:46:00',12,'/images/Screenshot (1).png',9),(13,'poiu',';lkj',0,'2016-10-06 18:47:00',1,'images/Screenshot (1).png',9);
+INSERT INTO `product` VALUES (1,'sabun','nyabun nyabunan sini hayu',3,'2016-10-07 04:30:00',20000,'images/1044753.jpg',9),(2,'minyak','oil',6,'2016-10-07 04:37:00',30000,'images/Tropical_Minyak.jpg',9),(3,'kucing','ngeong',5,'2016-03-04 11:00:00',50000,'?',10),(4,'haha','hihihi',NULL,'2016-10-05 05:09:00',12345,'C:UsersJoshua A KosasihDocuments[kuliah] WBDChicks-In-Hats1.jpg',2),(5,'waw','wiw',2,'2016-10-05 18:02:00',10000,'',3),(6,'adi','jadi adi suka sama dia',0,'2016-10-06 17:18:00',500,'',9),(7,'hah','hoh',0,'2016-10-06 17:07:00',1,'',3),(8,'qwer','qwerty',0,'2016-10-06 17:51:00',1234,NULL,9),(10,'wahh','wahaha',0,'2016-10-06 18:37:00',12,'/xampp/htdocs/TugasBesar1_SaleProject/images/Chicks-In-Hats1.jpg',9),(11,'yeuh','yeuhyeuh',0,'2016-10-06 18:44:00',1010,'/xampp/htdocs/TugasBesar1_SaleProject/images/Graphviz.png',9),(12,'asdf',';lkj',0,'2016-10-07 04:36:00',12,'images/634b776a715f8f7f57a.gif',9),(13,'poiu',';lkj',1,'2016-10-06 18:47:00',1,'images/Screenshot (1).png',9);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-06 23:52:45
+-- Dump completed on 2016-10-07  9:40:23
