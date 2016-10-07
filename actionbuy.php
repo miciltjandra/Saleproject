@@ -1,24 +1,22 @@
 <?php
-	$user = $_POST["user"];
+	$buyer_id = $_POST["user"];
+	$product_purchased = $_POST["item_id"];
 	$quantity = $_POST["quantity"];
 	$consignee = $_POST["consignee"];
 	$deliv_address = $_POST["deliv_address"];
-	$postal = $_POST["postal"];
+	$postal_code = $_POST["postal"];
 	$phone = $_POST["phone"];
 	$credit = $_POST["credit"];
 	$verification = $_POST["verification"];
+	$product_name = $_POST["product_name"];
+	$price = $_POST["price"];
+	$seller_id = $_POST["seller_id"];
+	$image = $_POST["image"];
 	
 	$servername = "localhost";
 	$db_username = "wbd";
 	$db_password = "twinbaldchicken";
 	$db_database = "saleproject";
-
-	echo $user_id;
-	echo $prd_name;
-	echo $description;
-	echo date("Y-m-d");
-	echo $price;
-
 
 
 	// Create connection
@@ -31,21 +29,29 @@
 		echo "Connected successfully <br>\n";
 	}
 
-	$query = "INSERT INTO product(product_name, description, added_date, price, image, seller_id)
+	$query = "INSERT INTO purchase(product_purchased, quantity, buyer_id, consignee, deliv_address, postalcode, phone, creditcard, verification, purchase_date, product_name, price, seller_id, image)
 	VALUES(" .
-	"\"" . $prd_name . "\"" . ", " .
-	"\"" . $description . "\"" . ", " .
+	"\"" . $product_purchased . "\"" . ", " .
+	"\"" . $quantity . "\"" . ", " .
+	"\"" . $buyer_id . "\"" . ", " .
+	"\"" . $consignee . "\"" . ", " .
+	"\"" . $deliv_address . "\"" . ", " .
+	"\"" . $postal_code . "\"" . ", " .
+	"\"" . $phone . "\"" . ", " .
+	"\"" . $credit . "\"" . ", ".
+	"\"" . $verification . "\"" . ", ".
 	"\"" . date("Y-m-d H-i") . "\"" . ", " .
-	"\"" . $price . "\"" . ", " .
-	"\"" . $fullname . "\"" . ", " .
-	"\"" . $user_id . "\"" . ")";
+	"\"" . $product_name . "\"" . ", ".
+	"\"" . $price . "\"" . ", ".
+	"\"" . $seller_id . "\"" . ", ".
+	"\"" . $image . "\"" . ")";
 
 	echo $query . "<br>\n"; 
 
 	if ($conn->query($query) === TRUE) {
 	    echo "Add product success<br>\n";
 	    
-	    header("Location: yourproducts.php?id_active=" . $user_id);
+	    header("Location: purchases.php?id_active=" . $buyer_id);
 	} else {
 	    die("Error : " . $conn->error);
 	}

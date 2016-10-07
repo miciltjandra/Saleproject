@@ -22,6 +22,9 @@
 				echo "Product :". $product['product_name']."<br>";
 				echo "Price   : IDR ". $product['price']."<br>";
 				$var = $product['price'];
+				$product_name = $product['product_name'];
+				$seller_id = $product['seller_id'];
+				$image = $product['image'];
 			}
 		?>
 		<form action="actionbuy.php" method="post" id="addform" enctype="multipart/form-data">
@@ -40,6 +43,12 @@
 			<br>
 		
 			<input type = "hidden" name = "user" value = <?php echo $_GET["id_active"]?> />
+			<input type = "hidden" name = "item_id" value = <?php echo $_GET["product"]?> />
+			<input type = "hidden" name = "product_name" value = <?php echo $product_name ?> />
+			<input type = "hidden" name = "price" value = <?php echo $var ?> />
+			<input type = "hidden" name = "seller_id" value = <?php echo $seller_id ?> />
+			<input type = "hidden" name = "image" value = <?php echo $image ?> />
+
 			Consignee <br />
 			<input type="text" name="consignee" /> 
 			<br /><br />
