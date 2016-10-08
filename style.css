@@ -93,12 +93,12 @@ a{
 
 .product .catalogmid {
 	float: left;
-	width: 60%;
+	width: 65%;
 	word-wrap: break-word;
 }
 
 .product .catalogright {
-	width: 20%;
+	width: 15%;
 	float: right;
 	padding: 4% 0;
 
@@ -124,6 +124,19 @@ a{
 	color: #669966;
 	float: right;
 	font-weight: bold;
+}
+
+.product .editbut {
+	color: orange;
+	font-weight: bold;
+}
+
+.product .delbut {
+	color: #FF0000;
+	float: right;
+	font-weight: bold;
+	cursor: pointer;
+	cursor: hand;
 }
 
 .product .name {
