@@ -22,20 +22,20 @@
 				$result = getSales($_GET["id_active"]);
 				while ($product = $result->fetch_assoc()) {
 
-					echo "<div style='height:260px'>";
+					echo '<div class="purchase">';
 					$time = strtotime($product["purchase_date"]);
-					$date = "<div class='bold'>".  date("l, d F Y ", $time) . " </div><br> at " . date("H.i", $time);
+					$date = "<div class='bold'>".  date("l, d F Y ", $time) . " </div> at " . date("H.i", $time);
 					echo $date . "<br/><hr>";
-					echo "<div style='float:left'>";
-					echo '<img class="product_icon" height="180px" width="180px" src="'. $product["image"] .'"/> <br/>' . "\n";
-					echo "</div><div style='float:left'>";
-					echo "<p style='font-weight:bold'>". $product["product_name"] . "</p><br/>\n";
-					echo "IDR ". $product["quantity"] * $product["price"]. " <br>";
+					echo '<div class="left">';
+					echo '<img class="icon" src="'. $product["image"] .'"/> <br/>' . "\n";
+					echo '</div><div class="mid"">';
+					echo "<div class='name'>". $product["product_name"] . "</div>\n";
+					echo "<div class='detail'>". "IDR ". $product["quantity"] * $product["price"] . "<br/>\n";
 					echo $product["quantity"] . " pcs<br/>\n";
-					echo "@IDR " . $product["price"] . "<br/><br>\n";
-					echo 'Bought by '.$product["username"] . "<br/>\n";
-					echo "</div><div style='margin-left:40%'>";
-					echo 'Delivery to '.$product["consignee"] . "<br/>\n";
+					echo "@IDR " . $product["price"] . "</div><br/>\n";
+					echo 'bought by '."<span class='bold'>".$product["username"] . " </span> ". "<br/>\n";
+					echo "</div><div class='right'>";
+					echo 'Delivery to '."<span class='bold'>".$product["consignee"] . " </span> ". "<br/>\n";
 					echo $product["deliv_address"] . "<br/>\n";
 					echo $product["postalcode"] . "<br/>\n";
 					echo $product["phone"] . "<br/>\n";

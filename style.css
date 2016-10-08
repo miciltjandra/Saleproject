@@ -82,13 +82,14 @@ a{
 	margin: 10px auto;
 }
 
-.product .icon {
+.icon {
 	width: 150px;
 	height: 150px;
 }
 
 .product .catalogleft {
 	float: left;
+	margin-right: 20px;
 }
 
 .product .catalogmid {
@@ -198,4 +199,37 @@ a{
 
 .breaker {
 	clear: both;
+}
+
+.purchase {
+	height:260px;
+}
+
+.purchase .left {
+	float: left;
+	margin-right: 20px;
+}
+
+.purchase .mid {
+	float: left;
+	width: 40%;
+	line-height: 25px;
+}
+
+.purchase .right {
+	width: 40%;
+	float: right;
+	line-height: 25px;
+	padding-top: 10px;
+}
+
+.purchase .name {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 0 0 0;
+}
+
+.purchase .detail {
+	font-size: 18px;
+	padding: 5px 0 5px 0;
 }
