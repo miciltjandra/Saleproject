@@ -32,9 +32,10 @@
 			<input id="edit_price" class="reg_text" type="number" name="price" value = <?php echo $product["price"] ?> oninput="valNumber(this.value, 'edit_price', 15, 1)" required maxlength="15" min="0" max="999999999999999"/>
 			<br />
 			Photo <br />
-
-			<input id="img" type="file" name="imagefile" accept="image/*" /> 
-			<p id="" ><?php echo $product["image"] ?></p>
+			<span>
+			<button style="float:left; margin: 12px 5px 0 0" disabled>Choose File</button>
+			<p style="float:left; font-size: 90%; max-width: 57%" ><?php echo $product["image"] ?></p>
+			</span>
 			<br />
 			<input class="submit" type="submit" value="Cancel" name="cancelbtn"/>
 			<input class="submit" type="submit" value="Update" name="updatebtn" />

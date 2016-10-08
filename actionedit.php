@@ -31,34 +31,6 @@
 		$description = $_POST["desc"];
 		$price = $_POST["price"];
 
-		$upload_image = $_FILES["imagefile"]["name"];
-
-		$folder="images/";
-
-		if ($_FILES["imagefile"]["size"] > 5000000) {
-
-		    echo "Sorry, your file is too large. Maks file size 5 MB.";
-		    
-		}
-		else {
-			$imageFileType = pathinfo($_FILES["imagefile"]["name"],PATHINFO_EXTENSION);
-
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" && $imageFileType != "bmp") {
-			    echo "Sorry, only JPG, JPEG, PNG, GIF, BMP files are allowed.";
-			    
-			}
-			else {
-				$fullname = $folder . $_FILES["imagefile"]["name"];
-
-				if (file_exists($fullname)) {
-				    echo "Sorry, file name already exists. Please change the image file name.";
-				}
-				else {
-					move_uploaded_file($_FILES["imagefile"]["tmp_name"], "$folder".$_FILES["imagefile"]["name"]);
-				}
-			}
-		}
-
 
 		$servername = "localhost";
 		$db_username = "wbd";
@@ -85,8 +57,7 @@
 		SET product_name='" . $prd_name . "',
 		description='" . $description . "',
 		added_date='" . date("Y-m-d H-i") . "',
-		price='" . $price . "',
-		image='" . $fullname . "'
+		price='" . $price . "'
 		WHERE product_id='" . $prd_id ."'";
 
 		echo $query . "<br>\n"; 
