@@ -15,16 +15,16 @@
 		
 		<div class="large text"> Please add your product here </div>
 		<br /><hr />
-		<form class="text" action="actionadd.php" method="post" id="addform" enctype="multipart/form-data">
+		<form onsubmit="return validateAdd()" class="text" action="actionadd.php" method="post" id="addform" enctype="multipart/form-data">
 			<input type = "hidden" name = "user" value = <?php echo $_GET["id_active"]?> />
 			Name <br />
-			<input id="add_name" class="reg_text" type="text" name="name" oninput="valNotEmpty(this.value, 'add_name')" required maxlength="100"/> 
+			<input id="add_name" class="reg_text" type="text" name="name" oninput="valNotEmpty(this.value, 'add_name')" required maxlength="100"/>
 			<br />
 			Description (max 200 chars) <br />
-			<textarea id="add_desc" class="reg_text" rows="4" form="addform" name="desc" oninput="valNotEmpty(this.value, 'add_desc')" required maxlength="200"></textarea> 
+			<textarea id="add_desc" class="reg_text" rows="4" form="addform" name="desc" oninput="valNotEmpty(this.value, 'add_desc')" required maxlength="200"></textarea>
 			<br />
 			Price (IDR) <br />
-			<input id="add_price" class="reg_text" type="number" name="price" oninput="valNumber(this.value, 'add_price')" required maxlength="15" min="0" max="999999999999999"/> 
+			<input id="add_price" class="reg_text" type="number" name="price" oninput="valNumber(this.value, 'add_price', 15)" required maxlength="15" min="0" max="999999999999999"/> 
 			<br />
 			Photo <br />
 			<input type="file" name="imagefile" accept="image/*" required /> 
