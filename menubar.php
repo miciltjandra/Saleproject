@@ -1,10 +1,10 @@
 <?php $user = $_GET["id_active"]; ?>
 <div class="middle fix">
-	<div style="text-align: right;margin-bottom: 5px">Hi <strong>
+	<div id="hi">Hi <span class="bold">
 		<?php include 'actionmenubar.php' ?>
-	</strong></div>
+	</span></div>
 	
-	<div style="text-align: right"><a style="color: darkblue" href="index.php">logout</a></div><br>
+	<div id="logout"><a class="maroon" href="index.php">logout</a></div><br>
 </div>
 <ul id="tab">
 <li><a href="catalog.php?id_active=<?php echo $user;?>" 		<?php if (strpos($_SERVER['PHP_SELF'], 'catalog.php')) echo 'class="active"'; ?> 		>Catalog</a></li>

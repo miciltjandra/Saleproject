@@ -234,3 +234,24 @@ a{
 	font-size: 18px;
 	padding: 5px 0 5px 0;
 }
+
+.maroon {
+	color: #B00000;
+}
+
+#project {
+	color: #9DB8FF;
+}
+
+#hi {
+	text-align: right;
+	margin-bottom: 5px;
+}
+
+#logout {
+	text-align: right;
+}
+
+#userexist {
+	color: #9DB8FF;
+}

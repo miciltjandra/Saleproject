@@ -30,9 +30,9 @@
 					echo '<img class="icon" src="'. $product["image"] .'"/> <br/>' . "\n";
 					echo '</div><div class="mid"">';
 					echo "<div class='name'>". $product["product_name"] . "</div>\n";
-					echo "<div class='detail'>". "IDR ". $product["quantity"] * $product["price"] . "<br/>\n";
+					echo "<div class='detail'>". "IDR ". number_format($product["quantity"] * $product["price"],0,",",".") . "<br/>\n";
 					echo $product["quantity"] . " pcs<br/>\n";
-					echo "@IDR " . $product["price"] . "</div><br/>\n";
+					echo "@IDR " . number_format($product["price"],0,",",".") . "</div><br/>\n";
 					echo 'bought by '."<span class='bold'>".$product["username"] . " </span> ". "<br/>\n";
 					echo "</div><div class='right'>";
 					echo 'Delivery to '."<span class='bold'>".$product["consignee"] . " </span> ". "<br/>\n";

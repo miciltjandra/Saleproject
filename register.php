@@ -22,9 +22,8 @@
 			?>
 			Full Name <br/>
 			<input type="text" class="reg_text" name="name" id="name" required="required" oninput="validate(this.value, this.name)"> <br/>
-			Username <br/>
+			Username <span id="userexist"></span> <br/>
 			<input type="text" class="reg_text" name="user" id="user" required="required" oninput="searchUsername(this.value);validate(this.value,this.name)">
-			<span id="userexist"></span> <br/>
 			Email <br/>
 			<input type="text" class="reg_text" name="email" id="email" required="required" oninput="validate(this.value, this.name)"> <br/>
 			Password <br/>
