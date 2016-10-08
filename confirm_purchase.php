@@ -10,7 +10,7 @@
 		require 'menubar.php';
 		require_once 'menubar.php';
     ?>
-	<body class="middle">
+	<body class="middle" onload="myFunction()">
 		
 		<div class="text large"> Please confirm your purchases </div>
 		<br><hr>
@@ -27,9 +27,9 @@
 				$image = $product['image'];
 			}
 		?>
-		<form action="actionbuy.php" method="post" id="addform" enctype="multipart/form-data">
+		<form action="actionbuy.php" method="post" id="addform" enctype="multipart/form-data"  onsubmit="return window.confirm(' Confirmation \n Make sure your purchase is correct.')">
 			Quantity:
-			<input type="number" id="quantity" name="quantity" autocomplete="off" onInput="myFunction()" required/> PCS<br>
+			<input type="number" id="quantity" name="quantity" autocomplete="off" value="1" onInput="myFunction()" required/> PCS<br>
 			<p id="demo">Total Price: IDR</p>
 		
 			<script>
@@ -42,36 +42,36 @@
 			<br>
 			<br>
 		
-			<input type = "hidden" name = "user" value = <?php echo $_GET["id_active"]?> />
-			<input type = "hidden" name = "item_id" value = <?php echo $_GET["product"]?> />
-			<input type = "hidden" name = "product_name" value = <?php echo $product_name ?> />
-			<input type = "hidden" name = "price" value = <?php echo $var ?> />
-			<input type = "hidden" name = "seller_id" value = <?php echo $seller_id ?> />
-			<input type = "hidden" name = "image" value = <?php echo $image ?> />
+			<input type = "hidden" name = "user" value = "<?php echo $_GET["id_active"]?>" />
+			<input type = "hidden" name = "item_id" value = "<?php echo $_GET["product"]?>" />
+			<input type = "hidden" name = "product_name" value = "<?php echo $product_name ?>" />
+			<input type = "hidden" name = "price" value = "<?php echo $var ?>" />
+			<input type = "hidden" name = "seller_id" value = "<?php echo $seller_id ?>" />
+			<input type = "hidden" name = "image" value = "<?php echo $image ?>" />
 
 			Consignee <br />
-			<input type="text" name="consignee" required/> 
+			<input type="text" name="consignee" required="required"/> 
 			<br /><br />
 			Full Address <br />
-			<textarea rows="4" form="addform" name="deliv_address" required></textarea> 
+			<textarea rows="4" form="addform" name="deliv_address" required="required" ></textarea> 
 			<br /><br />
 			Postal Code <br />
-			<input type="number" name="postal" required/> 
+			<input type="number" name="postal" required="required"/> 
 			<br /><br />
 			Phone Number <br />
-			<input type="number" name="phone" required/> 
+			<input type="number" name="phone" required="required"/> 
 			<br /><br />
 			12 Digit Credit Card Number <br />
-			<input type="number" name="credit" required/> 
+			<input type="number" name="credit" required="required"/> 
 			<br /><br />
 			3 Digit Card Verification Value <br />
-			<input type="number" name="verification" required/> 
+			<input type="number" name="verification" required="required"/> 
 			<br /><br />
 			
 			<br />
 			<div style="float:right">
 				<a href="catalog.php?id_active=<?php echo $_GET["id_active"] ?>" . $buyer_id" class="submit" > Cancel </a>
-				<input type="submit" value="Confirm" name="confirm" class="submit" onclick="return window.confirm(' Confirmation \n Make sure your purchase is correct.')">
+				<input type="submit" value="Confirm" name="confirm" class="submit">
 			</div>
 		</form>
 		<br><br>
