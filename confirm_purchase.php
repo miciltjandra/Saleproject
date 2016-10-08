@@ -3,6 +3,7 @@
 	<head>
 		<title> Confirm Purchase </title>
 		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="addscript.js"></script>
 	</head>
 	<?php
 	    require 'header.php';
@@ -27,9 +28,9 @@
 				$image = $product['image'];
 			}
 		?>
-		<form action="actionbuy.php" method="post" id="addform" enctype="multipart/form-data"  onsubmit="return window.confirm(' Confirmation \n Make sure your purchase is correct.')">
+		<form onsubmit="return validatePurch()" action="actionbuy.php" method="post" id="addform" enctype="multipart/form-data">
 			Quantity:
-			<input type="number" id="quantity" name="quantity" autocomplete="off" value="1" onInput="myFunction()" required/> PCS<br>
+			<input type="number" id="quantity" name="quantity" autocomplete="off" value="1" onInput="myFunction()" required min="1" maxlength="10" /> PCS<br>
 			<p id="demo">Total Price: IDR</p>
 		
 			<script>
@@ -56,16 +57,16 @@
 			<textarea rows="4" form="addform" name="deliv_address" required="required" ></textarea> 
 			<br /><br />
 			Postal Code <br />
-			<input type="number" name="postal" required="required"/> 
+			<input id="postal" type="number" name="postal" required="required"  maxlength="5" min="0" oninput="valNumber(this.value, 'postal', 5, 3)"/> 
 			<br /><br />
 			Phone Number <br />
-			<input type="number" name="phone" required="required"/> 
+			<input id="phone" type="number" name="phone" required="required" maxlength="12" min="0" oninput="valNumber(this.value, 'phone', 12, 8)"/>
 			<br /><br />
 			12 Digit Credit Card Number <br />
-			<input type="number" name="credit" required="required"/> 
+			<input id="credit" type="number" name="credit" required="required" maxlength="12" min="0" max="999999999999" oninput="valNumber(this.value, 'credit', 12, 12)"/>
 			<br /><br />
 			3 Digit Card Verification Value <br />
-			<input type="number" name="verification" required="required"/> 
+			<input id="verify" type="number" name="verification" required="required" maxlength="3" min="0" max="999" oninput="valNumber(this.value, 'verify', 3, 3)"/> 
 			<br /><br />
 			
 			<br />
@@ -76,14 +77,4 @@
 		</form>
 		<br><br>
 	</body>
-	<script>
-	function confirma() {
-		var r = confirm(" Confirmation \n Make sure your purchase is correct.");
-		if (r == true) {
-
-		} else {
-			
-		}
-	}
-	</script>
 </html>

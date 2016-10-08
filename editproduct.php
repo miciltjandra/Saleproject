@@ -29,7 +29,7 @@
 			<textarea id="edit_desc" class="reg_text" rows="4" form="addform" name="desc" oninput="valNotEmpty(this.value, 'edit_desc')" required maxlength="200"><?php echo $product["description"] ?></textarea> 
 			<br />
 			Price (IDR) <br />
-			<input id="edit_price" class="reg_text" type="number" name="price" value = <?php echo $product["price"] ?> oninput="valNumber(this.value, 'edit_price', 15)" required maxlength="15" min="0" max="999999999999999"/>
+			<input id="edit_price" class="reg_text" type="number" name="price" value = <?php echo $product["price"] ?> oninput="valNumber(this.value, 'edit_price', 15, 1)" required maxlength="15" min="0" max="999999999999999"/>
 			<br />
 			Photo <br />
 

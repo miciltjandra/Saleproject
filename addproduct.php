@@ -24,7 +24,7 @@
 			<textarea id="add_desc" class="reg_text" rows="4" form="addform" name="desc" oninput="valNotEmpty(this.value, 'add_desc')" required maxlength="200"></textarea>
 			<br />
 			Price (IDR) <br />
-			<input id="add_price" class="reg_text" type="number" name="price" oninput="valNumber(this.value, 'add_price', 15)" required maxlength="15" min="0" max="999999999999999"/> 
+			<input id="add_price" class="reg_text" type="number" name="price" oninput="valNumber(this.value, 'add_price', 15, 1)" required maxlength="15" min="0" max="999999999999999"/> 
 			<br />
 			Photo <br />
 			<input type="file" name="imagefile" accept="image/*" required /> 
