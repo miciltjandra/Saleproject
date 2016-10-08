@@ -94,15 +94,23 @@ a{
 
 .product .catalogmid {
 	float: left;
-	width: 65%;
+	max-width: 55%;
 	word-wrap: break-word;
 }
 
 .product .catalogright {
-	width: 15%;
+	width: 18%;
 	float: right;
 	padding: 4% 0;
 
+}
+
+hr {
+	clear: both;
+}
+
+br {
+	clear: both;
 }
 
 .clear {
@@ -115,6 +123,7 @@ a{
 
 .product .likebut {
 	color: #0000FF;
+	margin-left: 2%;
 	text-align: left;
 	font-weight: bold;
 	cursor: pointer;
@@ -123,6 +132,7 @@ a{
 
 .product .buybut {
 	color: #669966;
+	margin-right: 10%;
 	float: right;
 	font-weight: bold;
 }
