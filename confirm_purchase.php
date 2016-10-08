@@ -70,7 +70,7 @@
 			
 			<br />
 			<div style="float:right">
-				<a href="catalog.php?id_active=<?php echo $_GET["id_active"] ?>" . $buyer_id" class="submit" > Cancel </a>
+				<a href="catalog.php?id_active=<?php echo $_GET["id_active"] ?>" . $buyer_id"> <input type="button" class="submit" value="Cancel"> </a>
 				<input type="submit" value="Confirm" name="confirm" class="submit">
 			</div>
 		</form>

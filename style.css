@@ -158,8 +158,8 @@ a{
 }
 
 #search {
-	width: 90%;
-	height: 40px;
+	width: 88%;
+	height: 35px;
 	background-color: #EEEEEE;
 	border: none;
 	font-size: 18px;
@@ -168,7 +168,6 @@ a{
 
 .submit {
 	height: 35px;
-	width: 120px;
 	float: right;
 	border: none;
 	color: white;
@@ -178,6 +177,8 @@ a{
 	margin-left: 20px;
 	text-align:center;
 	padding-top:5px;
+	padding-left:10px;
+	padding-right:10px;
 }
 
 .searchradio {
