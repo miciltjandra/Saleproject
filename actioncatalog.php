@@ -32,8 +32,9 @@
 	function getSales($id){
 		$db = new Database();
 
-		$query = 'select *
-		from purchase join user where buyer_id = user_id and seller_id = '.$id.'
+		$query = 'SELECT *, (SELECT username FROM user WHERE user_id = buyer_id) as username
+		FROM purchase
+		WHERE seller_id = '.$id.'
 		ORDER BY purchase_date desc';
 		
 		$result = $db->query($query);
@@ -44,9 +45,9 @@
 	function getPurchases($id){
 		$db = new Database();
 
-		$query = 'select *
-		from purchase join user where seller_id = user_id and
-		buyer_id = '.$id.'
+		$query = 'SELECT *, (SELECT username FROM user WHERE user_id = seller_id) as username
+		FROM purchase
+		WHERE buyer_id = '.$id.'
 		ORDER BY purchase_date desc';
 		
 		$result = $db->query($query);
