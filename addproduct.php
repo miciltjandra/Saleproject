@@ -29,7 +29,7 @@
 			Photo <br />
 			<input type="file" name="imagefile" accept="image/*" required /> 
 			<br />
-			<input class="submit" type="button" value="Cancel" />
+			<input class="submit" type="button" value="Cancel" name="cancelbtn" onclick="window.location.reload(false)" />
 			<input class="submit" type="submit" value="Add" name="addbtn" />
 		</form>
 		<br class="breaker"/>
