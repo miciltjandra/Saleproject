@@ -20,6 +20,7 @@
 	<body class="middle">
 				
 		<div class="text large"> What are you going to sell today? </div>
+		<br />
 		<hr />
 		
 
