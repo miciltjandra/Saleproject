@@ -51,28 +51,28 @@
 			<input type = "hidden" name = "image" value = "<?php echo $image ?>" />
 
 			Consignee <br />
-			<input type="text" name="consignee" required="required"/> 
+			<input class="reg_text" type="text" name="consignee" required="required"/> 
 			<br /><br />
 			Full Address <br />
-			<textarea rows="4" form="addform" name="deliv_address" required="required" ></textarea> 
+			<textarea class="reg_text" rows="4" form="addform" name="deliv_address" required="required" ></textarea> 
 			<br /><br />
 			Postal Code <br />
-			<input id="postal" type="number" name="postal" required="required"  maxlength="5" min="0" oninput="valNumber(this.value, 'postal', 5, 3)"/> 
+			<input id="postal" class="reg_text" type="number" name="postal" required="required"  maxlength="5" min="0" oninput="valNumber(this.value, 'postal', 5, 3)"/> 
 			<br /><br />
 			Phone Number <br />
-			<input id="phone" type="number" name="phone" required="required" maxlength="12" min="0" oninput="valNumber(this.value, 'phone', 12, 8)"/>
+			<input id="phone" class="reg_text" type="number" name="phone" required="required" maxlength="12" min="0" oninput="valNumber(this.value, 'phone', 12, 8)"/>
 			<br /><br />
 			12 Digit Credit Card Number <br />
-			<input id="credit" type="number" name="credit" required="required" maxlength="12" min="0" max="999999999999" oninput="valNumber(this.value, 'credit', 12, 12)"/>
+			<input id="credit" class="reg_text" type="number" name="credit" required="required" maxlength="12" min="0" max="999999999999" oninput="valNumber(this.value, 'credit', 12, 12)"/>
 			<br /><br />
 			3 Digit Card Verification Value <br />
-			<input id="verify" type="number" name="verification" required="required" maxlength="3" min="0" max="999" oninput="valNumber(this.value, 'verify', 3, 3)"/> 
+			<input id="verify" class="reg_text" type="number" name="verification" required="required" maxlength="3" min="0" max="999" oninput="valNumber(this.value, 'verify', 3, 3)"/> 
 			<br /><br />
 			
 			<br />
 			<div style="float:right">
 				<a href="catalog.php?id_active=<?php echo $_GET["id_active"] ?>" . $buyer_id"> <input type="button" class="submit" value="Cancel"> </a>
-				<input type="submit" value="Confirm" name="confirm" class="submit">
+				<input class="submit" type="submit" value="Confirm" name="confirm" class="submit">
 			</div>
 		</form>
 		<br><br>
