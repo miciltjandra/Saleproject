@@ -30,7 +30,9 @@
 				while ($product = $result->fetch_assoc()) {
 					
 						echo "<br />\n";
-						echo $product["added_date"] . "<br />\n";
+						$time = strtotime($product["added_date"]);
+						$date = "<div class='bold'>".  date("l, d F Y ", $time) . " </div><br> at " . date("H.i", $time);
+						echo $date . "<br />\n";
 						echo '<div class="product_div" style="">' . "\n";
 							echo "<hr />\n";
 							echo '<div style="float:left; width:180px">';
@@ -39,7 +41,7 @@
 							echo "<strong>\n";
 							echo $product["product_name"]  . "<br />\n";
 							echo "</strong>\n";
-							echo $product["price"]  . "<br />\n";
+							echo "IDR " . $product["price"]  . "<br />\n";
 							echo $product["description"]  . "<br />\n";
 							echo '</div><div style="float:right">';
 							echo $product["likes"] . " likes"  . "<br />\n";

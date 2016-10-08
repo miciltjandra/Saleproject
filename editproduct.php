@@ -23,16 +23,17 @@
 			<input type = "hidden" name = "user" value = <?php echo $_GET["id_active"]?> />
 			<input type = "hidden" name = "product" value = <?php echo $_GET["product"]?> />
 			Name <br />
-			<input id="edit_name" class="reg_text" type="text" name="name" value = <?php echo $product["product_name"] ?> oninput="valNotEmpty(this.value, 'edit_name')" required/> 
+			<input id="edit_name" class="reg_text" type="text" name="name" value = <?php echo $product["product_name"] ?> oninput="valNotEmpty(this.value, 'edit_name')" required maxlength="100"/> 
 			<br />
 			Description (max 200 chars) <br />
-			<textarea id="edit_desc" class="reg_text" rows="4" form="addform" name="desc" oninput="valNotEmpty(this.value, 'edit_desc')" required><?php echo $product["description"] ?></textarea> 
+			<textarea id="edit_desc" class="reg_text" rows="4" form="addform" name="desc" oninput="valNotEmpty(this.value, 'edit_desc')" required maxlength="200"><?php echo $product["description"] ?></textarea> 
 			<br />
 			Price (IDR) <br />
-			<input id="edit_price" class="reg_text" type="number" name="price" value = <?php echo $product["price"] ?> oninput="valNumber(this.value, 'edit_price')" required/> 
+			<input id="edit_price" class="reg_text" type="number" name="price" value = <?php echo $product["price"] ?> oninput="valNumber(this.value, 'edit_price')" required maxlength="15" min="0" max="999999999999999"/> 
 			<br />
 			Photo <br />
-			<input type="file" name="imagefile" accept="image/*" value = <?php echo $product["image"] ?> /> 
+
+			<input id="img" type="file" name="imagefile" accept="image/*" /> 
 			<p id="" ><?php echo $product["image"] ?></p>
 			<br />
 			<input class="submit" type="submit" value="Cancel" name="cancelbtn"/>
