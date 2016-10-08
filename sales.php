@@ -41,7 +41,7 @@
 					echo $product["phone"] . "<br/>\n";
 					echo "</div>";
 					echo "</div>";
-					echo "<br/>\n";
+					echo "<br/>\n<br/>\n";
 
 
 				}

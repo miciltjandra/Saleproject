@@ -42,6 +42,7 @@
 					echo "</div>";
 					echo "</div>";
 					echo "<br/>\n";
+					echo "<br/>\n";
 
 				}
 				//echo $result["description"];

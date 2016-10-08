@@ -29,7 +29,7 @@
 		?>
 		<form action="actionbuy.php" method="post" id="addform" enctype="multipart/form-data">
 			Quantity:
-			<input type="number" id="quantity" name="quantity" autocomplete="off" onInput="myFunction()"/> PCS<br>
+			<input type="number" id="quantity" name="quantity" autocomplete="off" onInput="myFunction()" required/> PCS<br>
 			<p id="demo">Total Price: IDR</p>
 		
 			<script>
@@ -50,30 +50,40 @@
 			<input type = "hidden" name = "image" value = <?php echo $image ?> />
 
 			Consignee <br />
-			<input type="text" name="consignee" /> 
+			<input type="text" name="consignee" required/> 
 			<br /><br />
 			Full Address <br />
-			<textarea rows="4" form="addform" name="deliv_address"></textarea> 
+			<textarea rows="4" form="addform" name="deliv_address" required></textarea> 
 			<br /><br />
 			Postal Code <br />
-			<input type="number" name="postal" /> 
+			<input type="number" name="postal" required/> 
 			<br /><br />
 			Phone Number <br />
-			<input type="number" name="phone" /> 
+			<input type="number" name="phone" required/> 
 			<br /><br />
 			12 Digit Credit Card Number <br />
-			<input type="number" name="credit" /> 
+			<input type="number" name="credit" required/> 
 			<br /><br />
 			3 Digit Card Verification Value <br />
-			<input type="number" name="verification" /> 
+			<input type="number" name="verification" required/> 
 			<br /><br />
 			
 			<br />
 			<div style="float:right">
-				<input type="submit" value="Confirm" name="confirm" />
-				<input type="button" value="Cancel" />
+				<a href="catalog.php?id_active=<?php echo $_GET["id_active"] ?>" . $buyer_id" class="submit" > Cancel </a>
+				<input type="submit" value="Confirm" name="confirm" class="submit" onclick="return window.confirm(' Confirmation \n Make sure your purchase is correct.')">
 			</div>
 		</form>
 		<br><br>
 	</body>
+	<script>
+	function confirma() {
+		var r = confirm(" Confirmation \n Make sure your purchase is correct.");
+		if (r == true) {
+
+		} else {
+			
+		}
+	}
+	</script>
 </html>
